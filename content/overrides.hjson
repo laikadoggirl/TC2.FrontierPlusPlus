@@ -1,0 +1,16 @@
+﻿{
+	flags: none
+	priority: 0
+	
+	filters:
+	[
+		{
+			flags: none
+			regex: '''TC2\.(?!Overhaul).*[/\\]origin\.giant\.bastard\.hjson$'''
+		}
+		{
+			flags: none
+			regex: '''TC2\.(?!Overhaul).*[/\\]origin\.giant\.professor\.hjson$'''
+		}
+	]
+}

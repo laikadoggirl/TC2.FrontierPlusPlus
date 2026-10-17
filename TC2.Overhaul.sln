@@ -1,0 +1,25 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35209.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9E882A6E-19A6-455E-A615-7BB18A7C66DE}") = "TC2.Overhaul", "TC2.Overhaul.csproj", "{1D5F92E0-2D9A-4683-A0CD-A81DF04B3A94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Client|x64 = Client|x64
+		Server|x64 = Server|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D5F92E0-2D9A-4683-A0CD-A81DF04B3A94}.Client|x64.ActiveCfg = Client|x64
+		{1D5F92E0-2D9A-4683-A0CD-A81DF04B3A94}.Client|x64.Build.0 = Client|x64
+		{1D5F92E0-2D9A-4683-A0CD-A81DF04B3A94}.Server|x64.ActiveCfg = Server|x64
+		{1D5F92E0-2D9A-4683-A0CD-A81DF04B3A94}.Server|x64.Build.0 = Server|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1B15897-124A-4BA1-B991-14658417C00E}
+	EndGlobalSection
+EndGlobal
+

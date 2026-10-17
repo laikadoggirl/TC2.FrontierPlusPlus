@@ -1,0 +1,20 @@
+{
+	"version": "0.1.75.3",
+	"guid": "3b2b3bc5-5dec-4a90-82b3-f9fdaef91518",
+	"name": "Overhaul",
+	"description": null,
+	"url": null,
+	"git": null,
+	"authors": [],
+	"dependencies": [
+		{
+			"identifier": "TC2.Core",
+			"required": true
+		},
+		{
+			"identifier": "TC2.Base",
+			"required": true
+		}
+	],
+	"tags": []
+}
