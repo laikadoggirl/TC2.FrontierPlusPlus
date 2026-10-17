@@ -1,0 +1,214 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Grubby"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		rubber: residue, product, result, output
+		vinegar: product, result, byproduct, liquid, output
+		insect: raw, ingredient, input, auto_generated
+		alcohol: ingredient, liquid, input, auto_generated
+		mushroom: raw, ingredient, input, auto_generated
+		sludge: raw, waste, output, auto_generated
+		hydrogen_cyanide: gas, byproduct, output, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Formula"
+			
+			type: formula
+			flags: wip, incomplete, auto_generated
+			tags: material, raw
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: rotting
+			
+			ratio: 1.000
+			
+			options:
+			[
+				{
+					name: "Compost"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					suffix: " Compost Fermentation"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: plants
+							amount: 120.000
+							snapping: 1.000
+							loss: 0.255
+							ratio: 1.000
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: resource
+							material: mushroom.blue
+							amount: 35.000
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: work
+							work: mashing
+							amount: 220.000
+							amount_min: 150.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.762
+							loss: 0.212
+							ratio: 0.314
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: sludge
+							amount: 6.322631
+							amount_extra: 0.759732
+							group: 0
+							flags: pollutant, waste
+						}
+						{
+							type: resource
+							material: nitrogen_dioxide
+							amount: 6.000
+							amount_extra: 13.86851
+							group: 0
+							flags: byproduct, spawn
+						}
+					]
+					
+					filter_tools:
+					{
+						include: shovel, towel
+					}
+					filter_infrastructure:
+					{
+						include: dishes, compactor, blender, press, form
+					}
+				}
+			]
+		}
+		{
+			name: "Fermentation"
+			
+			type: processing
+			flags: wip, incomplete, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: rotting
+			
+			ratio: 1.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: work
+							work: fermenting
+							amount: 150.000
+							amount_min: 60.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.680
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						require: container
+						include: warm, stationary, contaminated, polluted, smelly, ugly, scary
+						exclude: cold, disinfected, sterile, toxic
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: compost
+			amount: 65.000
+			amount_extra: 27.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: production, no_cancel
+	tags: simple, organic, agriculture, fermenting, processing, dangerous
+	hints: none
+	connotations: none
+	infrastructure: liquid_container, fermenter
+	infrastructure_exclude: personal
+	
+	h_company: common
+	
+	icon:
+	{
+		texture: resource.plants
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [8.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: resource.compost
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_extra_offset: [-15.000, -7.000]
+	
+	icon_c:
+	{
+		texture: resource.mushroom.blue
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-13.000, -21.000]
+	
+	color_frame: "0xffbdcf3f"
+	color_button: "0xff9dd80f"
+	rank: -50.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

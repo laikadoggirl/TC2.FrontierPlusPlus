@@ -1,0 +1,90 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "Crane Arm (Wood)"
+	desc:
+		'''
+		Basic wooden crane arm with an attachment slot.
+		'''
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: wood
+			amount: 3.277153
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.plate
+			amount: 2.500
+			group: 0
+			flags: no_scaling, prerequisite
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 11.65049
+			snapping: 1.000
+			group: 0
+			flags: no_scaling, prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: crane.arm.basic.00
+			amount: 0.000
+			group: 0
+		}
+	]
+	
+	type: machinery
+	flags: wip
+	tags: construction
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
+	
+	icon:
+	{
+		texture: crane.arm.basic
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -68.000
+	
+	placement:
+	{
+		type: line
+		flags: allow_placement_over_buildings, place_line_rotated
+		
+		size: [0.500, 0.500]
+		
+		cooldown: 0.500
+		min_clearance: 1.000
+		min_claim: 1.000
+		
+		length_min: 2.000
+		length_max: 10.000
+		length_step: 0.500
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 1
+}

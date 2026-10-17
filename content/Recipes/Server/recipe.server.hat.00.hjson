@@ -1,0 +1,197 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Feathered Hat"
+	desc:
+		'''
+		A fancy looking feathered hat.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		steel.rod: input, auto_generated
+		mushroom: raw, input, auto_generated
+		cloth: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Cloth Heating"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.200
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 4.000
+							snapping: 0.400
+							loss: 0.078
+							ratio: 0.165
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: cutting
+							amount: 50.000
+							amount_min: 25.000
+							difficulty: 0
+							snapping: 0.250
+							loss: 0.157
+							ratio: 0.220
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: leather
+							amount: 0.420
+							snapping: 0.100
+							ratio: 0.016
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 318.100
+							amount_min: 42.000
+							amount_max: 504.000
+							snapping: 25.000
+							falloff: 0.138
+							loss: 0.271
+							ratio: 0.176
+							group: 0
+							flags: no_scaling, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 50.000
+							amount_min: 25.000
+							difficulty: 0
+							group: 0
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+			]
+		}
+		{
+			name: "Refining"
+			
+			type: assembly
+			flags: wip
+			tags: assembly
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Feather and Shape"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 0.277778
+							snapping: 0.100
+							loss: 0.298
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 60.000
+							amount_min: 35.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.930
+							ratio: 0.329
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, paintbrush, stapler, file, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: hat.00
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item
+	tags: manual, crafting, simple, small, assembling, tailoring
+	hints: none
+	connotations: none
+	infrastructure: table
+	infrastructure_exclude: giant
+	
+	icon:
+	{
+		texture: hat.00
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

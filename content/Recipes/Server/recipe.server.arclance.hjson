@@ -1,0 +1,292 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.75.0"
+	name: "Arc lance"
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Handle"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Rods"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 3.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.500
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: carpentry
+							amount: 100.000
+							amount_min: 200.000
+							difficulty: 9
+							snapping: 10.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 80.000
+							amount_min: 90.000
+							difficulty: 8
+							snapping: 10.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Zapper"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Pellets"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: directors
+							amount: 1.000
+							snapping: 0.500
+							loss: 0.157
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 2.000
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: pellet.electricity
+							amount: 1.000
+							loss: 0.141
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 90.000
+							amount_min: 120.000
+							difficulty: 9
+							ratio: 0.188
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 140.000
+							amount_min: 70.000
+							difficulty: 8
+							ratio: 0.165
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 60.000
+							amount_min: 80.000
+							difficulty: 6
+							snapping: 10.000
+							ratio: 0.145
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Scavanged"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.arcane
+							amount: 10.000
+							loss: 0.141
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 300.000
+							amount_min: 150.000
+							difficulty: 10
+							loss: 0.141
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 250.000
+							amount_min: 50.000
+							difficulty: 9
+							loss: 0.141
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 2.000
+							loss: 0.173
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 90.000
+							amount_min: 120.000
+							difficulty: 9
+							ratio: 0.188
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 140.000
+							amount_min: 70.000
+							difficulty: 8
+							ratio: 0.165
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 60.000
+							amount_min: 80.000
+							difficulty: 6
+							snapping: 10.000
+							ratio: 0.145
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.arcane
+							amount: 0.967742
+							amount_extra: 2.903226
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: directors
+							amount: 0.31831
+							amount_extra: 0.95493
+							group: 0
+							chance: 0.800
+							flags: byproduct
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: arc_lance
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, wip
+	tags: manual, crafting, complex, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: table, vise, surface, hard_surface, workbench
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: arc_lance
+		size: [32, 0]
+	}
+	
+	color_frame: "0xff2a9ea5"
+	color_button: "0xff9dd80f"
+	rank: 1995.000
+	frame_size: [128.000, 48.000]
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 0
+}

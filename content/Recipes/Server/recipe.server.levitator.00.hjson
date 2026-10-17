@@ -1,0 +1,264 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "EC-MT Levitator (Single)"
+	desc:
+		'''
+		Powerful EC-MT levitator used for propulsion.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Body"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 15.000
+							loss: 0.192
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: smirglum.plate
+							amount: 24.000
+							loss: 0.192
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: smithing
+							amount: 550.000
+							difficulty: 14
+							ratio: 0.196
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: drilling
+							amount: 700.000
+							difficulty: 12
+							ratio: 0.208
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: smirgrafit.clay
+							amount: 3.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: phlogiston
+							amount: 5.244755
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: smearing
+							amount: 300.000
+							difficulty: 6
+							ratio: 0.216
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: welding.phlogiston
+							amount: 600.000
+							difficulty: 8
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Integrated"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 12.000
+							loss: 0.192
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: smirglum.plate
+							amount: 22.83777
+							loss: 0.192
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: smithing
+							amount: 550.000
+							difficulty: 14
+							ratio: 0.196
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: drilling
+							amount: 700.000
+							difficulty: 12
+							ratio: 0.208
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: putty
+							amount: 22.83105
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: cpt.integration
+							amount: 60.000
+							difficulty: 8
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Controller"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Standard"
+					desc: " Using standard director based pellet control."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: directors
+							amount: 4.000
+							loss: 0.125
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 10.000
+							loss: 0.141
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 600.000
+							difficulty: 10
+							ratio: 0.176
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 400.000
+							difficulty: 9
+							ratio: 0.133
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: levitator.00
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, wip
+	tags: manual, crafting, complex, advanced, large, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: levitator.00
+	}
+	
+	color_frame: "0xff19e2b1"
+	color_button: "0xff9dd80f"
+	rank: -541.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
+}

@@ -1,0 +1,88 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "Mount (Static, Wide)"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: machine_parts
+			amount: 30.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 20.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.plate
+			amount: 15.000
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: mount.wall.01
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: machinery
+	flags: blueprintable, wip
+	tags: construction
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.800
+	
+	icon:
+	{
+		texture: mount.wall.01
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -432.000
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, no_snapping, no_solid_support
+		
+		size: [1.800, 1.800]
+		
+		cooldown: 0.500
+		min_support: 0.900
+		min_clearance: 0.900
+		
+		rotation_max: 0.200
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 0
+}

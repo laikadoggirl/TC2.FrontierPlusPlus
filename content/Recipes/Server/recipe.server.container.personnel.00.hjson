@@ -1,0 +1,324 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.75.0"
+	name: "Personnel Container"
+	
+	stages:
+	[
+		{
+			name: "Frame"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.rod
+							amount: 35.000
+							snapping: 1.000
+							loss: 0.337
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 30.000
+							snapping: 1.000
+							loss: 0.286
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 40.000
+							snapping: 1.000
+							loss: 0.294
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 800.000
+							difficulty: 9
+							ratio: 0.110
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 1000.000
+							difficulty: 8
+							ratio: 0.110
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: bolting
+							amount: 500.000
+							difficulty: 6
+							ratio: 0.086
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Seats"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Shroomy"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 38.83495
+							snapping: 1.000
+							loss: 0.220
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 600.000
+							difficulty: 7
+							ratio: 0.102
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: mushroom
+							amount: 64.65517
+							ratio: 0.102
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: cloth
+							amount: 69.44444
+							ratio: 0.102
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 700.000
+							difficulty: 8
+							ratio: 0.102
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Walls"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 50.000
+							ratio: 0.102
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 1200.000
+							difficulty: 7
+							ratio: 0.102
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 16.000
+							ratio: 0.102
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 77.66991
+							snapping: 1.000
+							loss: 0.220
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 800.000
+							difficulty: 8
+							ratio: 0.102
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Equipement"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 4.26694
+							ratio: 0.102
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 2.000
+							ratio: 0.102
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 19.41748
+							snapping: 1.000
+							loss: 0.220
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 200.000
+							difficulty: 6
+							ratio: 0.102
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 350.000
+							difficulty: 6
+							ratio: 0.102
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: container.personnel
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, wip
+	tags: advanced, large, vehicle, machinery, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: container.personnel
+	}
+	
+	icon_extra:
+	{
+		size: [24, 32]
+	}
+	icon_extra_offset: [-28.000, -18.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 2499.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
+}

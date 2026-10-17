@@ -1,0 +1,344 @@
+﻿{
+	$version: "0.1.75.0"
+	name: "Opium processing"
+	desc:
+		'''
+		Process opium resin into usable opiates such as morphine and codeine.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		opium: ingredient
+		sulfuric_acid: ingredient
+		morphine: product
+		codeine: product
+		alcohol: ingredient
+		saltpeter: ingredient
+		water: ingredient
+		water.toxic: waste
+		sludge: waste
+		cloth: ingredient
+	}
+	
+	stages:
+	[
+		{
+			name: "Extraction"
+			
+			type: formula
+			flags: part, important
+			tags: material, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Dilute Sulfuric acid"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sulfuric_acid
+							amount: 0.300
+							snapping: 0.100
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: water
+							amount: 2.000
+							snapping: 0.100
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: mixing
+							amount: 50.000
+							amount_min: 40.000
+							difficulty: 6
+							snapping: 0.100
+							loss: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: resource
+							material: opium
+							amount: 3.000
+							snapping: 0.100
+							loss: 1.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: mashing
+							amount: 30.000
+							amount_min: 40.000
+							difficulty: 6
+							snapping: 0.100
+							loss: 1.000
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: temperature
+							amount: 320.000
+							amount_min: 313.000
+							amount_max: 323.000
+							snapping: 0.100
+							loss: 1.000
+							group: 2
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: dissolving
+							amount: 30.000
+							amount_min: 40.000
+							difficulty: 10
+							snapping: 5.000
+							falloff: 0.800
+							loss: 1.000
+							group: 2
+							flags: always_evaluate, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: water.toxic
+							amount: 1.409396
+							group: 0
+							flags: waste
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Purification"
+			
+			type: formula
+			flags: part, important
+			tags: material, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Salt-alcohol"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: saltpeter
+							amount: 1.515152
+							snapping: 1.000
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: grinding
+							amount: 25.000
+							amount_min: 50.000
+							difficulty: 8
+							snapping: 5.000
+							loss: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 4.464286
+							snapping: 1.000
+							loss: 1.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: pouring
+							amount: 15.000
+							amount_min: 20.000
+							difficulty: 7
+							snapping: 5.000
+							loss: 1.000
+							group: 1
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: mixing
+							amount: 20.000
+							amount_min: 10.000
+							difficulty: 6
+							snapping: 5.000
+							loss: 1.000
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: water.toxic
+							amount: 1.409396
+							group: 0
+							flags: waste
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Concentration"
+			
+			type: formula
+			flags: part, important
+			tags: material, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Filter-Distilation"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 2.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: pouring
+							amount: 30.000
+							amount_min: 50.000
+							difficulty: 4
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 360.000
+							amount_min: 350.000
+							amount_max: 375.000
+							group: 1
+							flags: no_scaling
+						}
+						{
+							type: work
+							work: distillation
+							amount: 10.000
+							amount_min: 80.000
+							difficulty: 4
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: sludge
+							amount: 0.6848
+							amount_extra: 1.659
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: morphine
+							amount: 0.571429
+							amount_extra: 0.228571
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: codeine
+							amount: 0.866667
+							amount_extra: 0.433333
+							group: 0
+							flags: primary, compact
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, wip
+	tags: complex, alchemistry, blending, refining, processing, dangerous
+	hints: none
+	connotations: none
+	infrastructure: cauldron, bucket, liquid_container
+	infrastructure_exclude: personal
+	
+	icon:
+	{
+		texture: resource.codeine
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [16.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: resource.morphine
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-38.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.opium
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-22.000, -18.000]
+	
+	color_frame: "0xff80dc7e"
+	color_button: "0xff9dd80f"
+	rank: 79.000
+	frame_size: [64.000, 0.000]
+	
+	min: 1
+	max: 25
+	step: 1
+	
+	version: 1
+}

@@ -1,0 +1,519 @@
+﻿{
+	$version: "0.1.75.0"
+	name: "HW-106.7MM/HV (Explosive)"
+	desc:
+		'''
+		A large and formidable shell filled with high grade mateirals for long range shelling.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		ammo.ac.lv: product
+		ammo.ac.hv: product
+		scrap.copper: residue
+		scrap.steel: residue
+		oil: residue, byproduct
+		water.toxic: waste
+	}
+	
+	stages:
+	[
+		{
+			name: "Casing"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Hammered Steel"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 4.000
+							loss: 0.682
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 200.000
+							amount_min: 600.000
+							difficulty: 10
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.638784
+							amount_extra: 0.161006
+							group: 0
+							flags: residue
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Primer"
+			
+			type: component
+			flags: part
+			tags: functional, small, flat, rounded, material, dangerous
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Nitrosugar"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: punch
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrosugar
+							amount: 0.802139
+							snapping: 0.100
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 1.488095
+							snapping: 0.100
+							falloff: 0.986
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: wadding
+							amount: 60.000
+							amount_min: 48.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.838
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+				}
+				{
+					name: "Nitroglycerine"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.305344
+							snapping: 0.100
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: pouring
+							amount: 25.000
+							amount_min: 220.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.691
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula, ladle
+					}
+				}
+				{
+					name: "Himlkarzenus"
+					
+					type: undefined
+					flags: incomplete
+					discard_damage_type_override: sledgehammer
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: himlkarzenus
+							amount: 1.822323
+							snapping: 0.100
+							falloff: 0.817
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: cramming.solid
+							amount: 15.000
+							amount_min: 60.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 1.002
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Propellant"
+			
+			type: formula
+			flags: important
+			tags: container, assembly, functional, material, dangerous, formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Nitrocelulose"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 5.18732
+							snapping: 0.100
+							loss: 0.125
+							ratio: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 70.000
+							amount_min: 65.000
+							difficulty: 7
+							snapping: 10.000
+							falloff: 0.972
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, pliers
+						include: wrench, pliers, tweezers, bucket, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, vise
+					}
+				}
+				{
+					name: "NTG-NC"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 3.458213
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 1.017812
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: mixing
+							amount: 70.000
+							amount_min: 130.000
+							difficulty: 8
+							snapping: 10.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: wadding
+							amount: 80.000
+							amount_min: 90.000
+							difficulty: 8
+							snapping: 10.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, pliers
+						include: wrench, pliers, tweezers, bucket, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, vise
+					}
+				}
+			]
+		}
+		{
+			name: "Warhead"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Nitrocelulose"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 80.000
+							amount_min: 140.000
+							difficulty: 10
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 6.916427
+							falloff: 0.950
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 70.000
+							amount_min: 60.000
+							difficulty: 9
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 180.000
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.980
+							ratio: 0.016
+							group: 2
+							flags: conditional
+						}
+					]
+				}
+				{
+					name: "Sweaty-TNT"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 80.000
+							amount_min: 140.000
+							difficulty: 10
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: tnt
+							amount: 0.773246
+							falloff: 0.950
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 2.035623
+							falloff: 0.950
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: pouring
+							amount: 40.000
+							amount_min: 50.000
+							difficulty: 6
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: wadding
+							amount: 70.000
+							amount_min: 60.000
+							difficulty: 9
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 180.000
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.980
+							ratio: 0.016
+							group: 2
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: ammo.hw.hv
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: production, wip
+	tags: manual, crafting, complex, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, chair, surface, machine, workbench
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_offset: [-9.000, 8.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_gunsmith.mini
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-16.000, 0.000]
+	
+	icon_c:
+	{
+		texture: resource.ammo.hw.hv
+		size: [16, 16]
+	}
+	icon_c_offset: [-10.000, -13.000]
+	icon_c_scale: 1.100
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -55.500
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 0
+}

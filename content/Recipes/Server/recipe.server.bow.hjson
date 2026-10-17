@@ -1,0 +1,187 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Bow"
+	desc:
+		'''
+		A classic ancient Human invention, effective for hunting or firing over elevated terrain.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Wooden Limb"
+			
+			type: part
+			flags: replaceable, part, important, wip, auto_generated
+			tags: barrel, chassis, rod, metal, structural, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.430
+			mass_base: 5.160
+			
+			options:
+			[
+				{
+					name: "Carved"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 1.000
+							snapping: 1.000
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: cutting
+							amount: 150.000
+							amount_min: 40.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.950
+							ratio: 0.878
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 70.000
+							amount_min: 50.000
+							difficulty: 0
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.wood
+							amount: 0.855
+							group: 0
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, pliers, chisel, towel, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, hard_surface, workbench
+					}
+				}
+			]
+		}
+		{
+			name: "String"
+			
+			type: part
+			flags: part, important, wip, auto_generated
+			tags: frame, chassis, mechanism, metal, structural, functional
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.380
+			mass_base: 4.560
+			
+			options:
+			[
+				{
+					name: "Wrapping"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 2.470
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: wrapping.cloth
+							amount: 214.4108
+							amount_min: 87.500
+							difficulty: 11
+							snapping: 5.000
+							falloff: 0.880
+							ratio: 0.878
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench, file
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, chisel, towel, tongs, pick, crowbar, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: bow
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item
+	tags: manual, crafting, dumb, small, weapon, military
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: giant
+	
+	h_company: common
+	
+	icon:
+	{
+		texture: bow
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 8.000
+	frame_size: [64.000, 48.000]
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 1
+}

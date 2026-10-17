@@ -1,0 +1,193 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.75.0"
+	name: "Cabin (Wood)"
+	
+	stages:
+	[
+		{
+			name: "Frame"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 50.000
+							snapping: 1.000
+							loss: 0.294
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing
+							amount: 800.000
+							difficulty: 8
+							ratio: 0.110
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 10.000
+							snapping: 1.000
+							loss: 0.220
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 40.000
+							snapping: 1.000
+							loss: 0.271
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 400.000
+							difficulty: 8
+							ratio: 0.110
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: bolting
+							amount: 500.000
+							difficulty: 8
+							ratio: 0.086
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Seat"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Shroomy"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 15.53398
+							snapping: 1.000
+							loss: 0.220
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 600.000
+							difficulty: 7
+							ratio: 0.102
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: mushroom
+							amount: 21.55173
+							ratio: 0.102
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: cloth
+							amount: 13.88889
+							ratio: 0.102
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 13.88889
+							difficulty: 0
+							ratio: 0.102
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: cabin.mini.00
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, wip
+	tags: advanced, large, vehicle, machinery, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: cabin.mini.00.bg
+		size: [24, 32]
+	}
+	
+	icon_extra:
+	{
+		size: [24, 32]
+	}
+	icon_extra_offset: [-28.000, -18.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 2499.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
+}

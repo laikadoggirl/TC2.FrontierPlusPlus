@@ -1,0 +1,157 @@
+﻿{
+	$version: "0.1.72.1"
+	name: "Gold Bricks"
+	desc:
+		'''
+		We're rich!
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		gold.ingot: product, result, output
+		gold: raw, ingredient, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: formula
+			flags: important
+			tags: material, raw, formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Hammered"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: sledgehammer
+					
+					suffix: " (Hammered)"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 841.100
+							amount_min: 542.000
+							amount_max: 1509.136
+							falloff: 0.544
+							group: 0
+							flags: no_scaling, always_evaluate, optional
+						}
+						{
+							type: resource
+							material: gold
+							amount: 1.000
+							snapping: 1.000
+							loss: 0.024
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 420.000
+							amount_min: 200.000
+							difficulty: 10
+							snapping: 5.000
+							falloff: 0.983
+							ratio: 0.075
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 235.000
+							amount_min: 190.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.886
+							ratio: 1.000
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: gold.ingot
+							amount: 0.866552
+							amount_extra: 0.033
+							group: 0
+							flags: primary, compact, use_temperature
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, file
+						include: chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production
+	tags: manual, crafting, simple, raw, industrial, metalworking, metallurgy, processing
+	hints: none
+	connotations: none
+	infrastructure: hard_surface
+	infrastructure_exclude: personal
+	
+	icon:
+	{
+		texture: resource.gold.ingot
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-3.875, 2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [2, 3]
+	}
+	icon_extra_offset: [0.000, -18.000]
+	
+	icon_c:
+	{
+		texture: resource.gold
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-3.000, -6.000]
+	
+	color_frame: "0xffff851e"
+	color_button: "0xff9dd80f"
+	rank: -715.000
+	frame_size: [48.000, 48.000]
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}

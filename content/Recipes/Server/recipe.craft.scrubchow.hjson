@@ -1,0 +1,379 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Scrub Chow"
+	desc:
+		'''
+		Put just about anything meaty or biological into a can and call it food.
+
+		Has a stench of cat.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Can-Making"
+			
+			type: assembly
+			flags: none
+			tags: mechanism, metal, assembly, machinery
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Die-Stamped"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 0.200
+							group: 0
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 200.000
+							amount_min: 60.000
+							difficulty: 6
+							group: 0
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.2119
+							group: 0
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+					
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
+					}
+				}
+				{
+					name: "Hammered"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 2.000
+							group: 0
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.250
+							group: 0
+						}
+						{
+							type: work
+							work: hammering
+							amount: 150.000
+							amount_min: 100.000
+							difficulty: 8
+							group: 0
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.3129
+							group: 0
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, cutters, sandpaper
+						include: cutters, pliers, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						require: table, surface
+					}
+					filter_environment:
+					{
+						require: workshop, stationary
+					}
+				}
+			]
+		}
+		{
+			name: "Foodstuff Insertion"
+			
+			type: undefined
+			flags: none
+			tags: material, raw, formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Mystery Meat"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: meat
+							amount: 10.000
+							snapping: 0.100
+							loss: 0.996
+							ratio: 0.173
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 200.000
+							amount_min: 140.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 1.018
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: chow
+							amount: 12.000
+							amount_extra: 0.564
+							snapping: 0.100
+							group: 0
+							ratio: 0.918
+							flags: residue, primary, scale_to_mass
+						}
+						{
+							type: resource
+							material: meat
+							amount: 0.5964
+							amount_extra: 0.213
+							snapping: 0.010
+							group: 0
+							ratio: 0.918
+							flags: waste, residue, scale_to_mass
+						}
+					]
+				}
+				{
+					name: "Sweet Treats"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sugar
+							amount: 1.500
+							snapping: 0.100
+							loss: 0.996
+							ratio: 0.173
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: resource
+							material: porridge
+							amount: 8.500
+							snapping: 0.100
+							loss: 0.996
+							ratio: 0.173
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 200.000
+							amount_min: 140.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 1.018
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: chow
+							amount: 12.000
+							amount_extra: 0.364
+							snapping: 0.100
+							group: 0
+							ratio: 0.918
+							flags: residue, primary, scale_to_mass
+						}
+						{
+							type: resource
+							material: porridge
+							amount: 0.700
+							amount_extra: 0.213
+							snapping: 0.010
+							group: 0
+							ratio: 0.918
+							flags: waste, residue, scale_to_mass
+						}
+					]
+				}
+				{
+					name: "Klaus S. Special"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: insect
+							amount: 7.500
+							snapping: 0.100
+							loss: 0.996
+							ratio: 0.173
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: resource
+							material: chitin
+							amount: 2.500
+							snapping: 0.100
+							loss: 0.996
+							ratio: 0.173
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 200.000
+							amount_min: 140.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 1.018
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: chow
+							amount: 12.000
+							amount_extra: 0.564
+							snapping: 0.100
+							group: 0
+							ratio: 0.918
+							flags: residue, primary, scale_to_mass
+						}
+						{
+							type: resource
+							material: insect
+							amount: 0.2411
+							amount_extra: 0.213
+							snapping: 0.010
+							group: 0
+							ratio: 0.918
+							flags: waste, residue, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production
+	tags: manual, crafting, simple, raw, metalworking, metallurgy, processing
+	hints: none
+	connotations: none
+	infrastructure: hard_surface
+	infrastructure_exclude: personal
+	
+	h_company: farmus
+	
+	icon:
+	{
+		texture: resource.chow
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-3.125, 2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [6, 0]
+	}
+	icon_extra_offset: [0.000, -18.000]
+	
+	icon_c:
+	{
+		texture: resource.meat
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-3.000, -9.000]
+	
+	color_frame: "0xffff851e"
+	color_button: "0xff9dd80f"
+	rank: -716.000
+	frame_size: [48.000, 48.000]
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 1
+}

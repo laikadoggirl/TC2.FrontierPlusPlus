@@ -1,0 +1,169 @@
+﻿{
+	$version: "0.1.74.0"
+	$author: "KittySnatcher"
+	name: "Chassis (Large)"
+	desc:
+		'''
+		Wide with a walkable platform for mobile transport platforms.
+		(7x tool slot)
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		steel.frames: input, auto_generated
+		machine_parts: input, auto_generated
+		steel.plate: input, auto_generated
+		steel.rod: input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 40.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 170.000
+							snapping: 0.500
+							loss: 0.263
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 120.000
+							snapping: 1.000
+							loss: 0.125
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 3600.000
+							difficulty: 8
+							snapping: 25.000
+							ratio: 0.384
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 2200.000
+							difficulty: 7
+							snapping: 25.000
+							ratio: 0.259
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 80.000
+							snapping: 0.500
+							loss: 0.071
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 220.000
+							snapping: 1.000
+							loss: 0.137
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: welding
+							amount: 1800.000
+							difficulty: 5
+							snapping: 25.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: chassis.04
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, item, wip, needs_review
+	tags: manual, crafting, complex, large, vehicle, assembling, metalworking, engineering, construction
+	hints: none
+	connotations: none
+	infrastructure: pulley, surface, hard_surface
+	infrastructure_exclude: personal
+	
+	icon:
+	{
+		texture: chassis.04.bg
+	}
+	icon_offset: [0.000, -5.000]
+	
+	icon_extra:
+	{
+		texture: chassis.04.fg
+	}
+	icon_extra_offset: [0.000, -1.000]
+	
+	icon_c_offset: [0.000, 2.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 2500.000
+	frame_size: [184.000, 64.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 1
+}

@@ -1,0 +1,126 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Cap"
+	desc:
+		'''
+		A cute looking cap.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		steel.rod: input, auto_generated
+		mushroom: raw, input, auto_generated
+		cloth: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.200
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 3.400
+							snapping: 0.400
+							loss: 0.078
+							ratio: 0.165
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: leather
+							amount: 0.500
+							snapping: 0.100
+							ratio: 0.016
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 400.000
+							amount_min: 278.000
+							amount_max: 500.000
+							snapping: 25.000
+							falloff: 0.942
+							loss: 0.271
+							ratio: 0.176
+							group: 0
+							flags: no_scaling, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 50.000
+							amount_min: 25.000
+							difficulty: 0
+							group: 0
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: hat.01
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item
+	tags: manual, crafting, simple, small, assembling, tailoring
+	hints: none
+	connotations: none
+	infrastructure: table
+	infrastructure_exclude: giant
+	
+	icon:
+	{
+		texture: hat.01
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

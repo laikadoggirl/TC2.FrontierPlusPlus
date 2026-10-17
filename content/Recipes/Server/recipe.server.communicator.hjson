@@ -1,0 +1,311 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "EC-CG Communicatitron"
+	desc:
+		'''
+		EC-CG communicator device that can be used to transmit supply drop orders from receiving stations.
+
+		It's bloody chunky.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Base"
+			
+			type: formula
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.500
+			
+			options:
+			[
+				{
+					name: "Steel Base"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 422.665
+							amount_min: 241.000
+							amount_max: 806.136
+							falloff: 0.888
+							group: 0
+							flags: no_scaling, always_evaluate, optional
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 6.000
+							snapping: 0.050
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 25.000
+							snapping: 0.050
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 850.000
+							amount_min: 500.000
+							difficulty: 12
+							snapping: 5.000
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: hammering
+							amount: 1050.000
+							amount_min: 600.000
+							difficulty: 8
+							snapping: 5.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, cutters, sandpaper
+						include: cutters, pliers, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: table, surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
+				}
+			]
+		}
+		{
+			name: "Internal Mechanisms"
+			
+			type: formula
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.500
+			
+			options:
+			[
+				{
+					name: "Wiring"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 35.000
+							snapping: 0.050
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: machining
+							amount: 820.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 420.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: shovel, towel
+					}
+					filter_infrastructure:
+					{
+						include: dishes, compactor, blender, press, form
+					}
+				}
+			]
+		}
+		{
+			name: "EC-CG Pellet Compatibility"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.300
+			
+			options:
+			[
+				{
+					name: "Calibration"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: pellet.cognition
+							amount: 2.000
+							loss: 0.067
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 25.000
+							loss: 0.067
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: calibration
+							amount: 540.000
+							amount_min: 140.000
+							difficulty: 7
+							snapping: 0.500
+							ratio: 0.145
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: refining
+							amount: 100.000
+							amount_min: 40.000
+							difficulty: 5
+							snapping: 0.500
+							ratio: 0.145
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: communication
+							amount: 250.000
+							amount_min: 40.000
+							difficulty: 5
+							snapping: 0.500
+							ratio: 0.145
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: prefab
+							prefab: communicator.00
+							amount: 1.000
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: scrap.metal
+							amount: 0.8524
+							amount_extra: 0.1452
+							snapping: 0.100
+							group: 0
+							ratio: 1.000
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.3431
+							amount_extra: 0.1452
+							snapping: 0.100
+							group: 0
+							ratio: 1.000
+							flags: residue, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production
+	tags: manual, crafting, simple, raw, metalworking, metallurgy, processing
+	hints: none
+	connotations: none
+	infrastructure: hard_surface
+	infrastructure_exclude: personal
+	
+	icon:
+	{
+		texture: communicator
+	}
+	icon_offset: [-7.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [1.000, -11.000]
+	icon_extra_scale: 1.140
+	
+	icon_c:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [1, 5]
+	}
+	icon_c_offset: [-5.000, -7.000]
+	icon_c_scale: 0.570
+	
+	color_frame: "0xffa968ee"
+	color_button: "0xff9d45da"
+	rank: -1.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}

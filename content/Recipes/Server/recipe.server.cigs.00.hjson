@@ -1,0 +1,434 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "Cigarettes"
+	tips: []
+	
+	related_materials:
+	{
+		nitroglycerine: ingredient, liquid, input, auto_generated
+		sawdust: powdered, ingredient, input, auto_generated
+		saltpeter: raw, powdered, ingredient, input, auto_generated
+		mush: residue, scrap, output, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		tnt: ingredient, input, auto_generated
+		nitrocellulose: powdered, ingredient, input, auto_generated
+		porridge: ingredient, input, auto_generated
+		paper: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Filling"
+			
+			type: formula
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.500
+			
+			options:
+			[
+				{
+					name: "Tobacco"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: tobacco
+							amount: 3.500
+							snapping: 0.050
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 40.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: shovel, towel
+					}
+					filter_infrastructure:
+					{
+						include: dishes, compactor, blender, press, form
+					}
+				}
+				{
+					name: "Explodey"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					suffix: " (Explodey)"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: tobacco
+							amount: 2.500
+							snapping: 0.050
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: gunpowder
+							amount: 0.362319
+							snapping: 0.100
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 40.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: prefab
+							prefab: projectile.sg.grenade
+							amount: 1.000
+							group: 0
+							flags: spawn_event, hidden
+						}
+					]
+					
+					failure_chance: 1.000
+					
+					filter_tools:
+					{
+						include: shovel, towel
+					}
+					filter_infrastructure:
+					{
+						include: dishes, compactor, blender, press, form
+					}
+					
+					on_failure:
+					{
+						handle: "explosive.explode"
+						data:
+						{
+							explosive:
+							{
+								radius: 10.000
+								power: 10.000
+								damage_entity: 100.000
+								damage_terrain: 100.000
+								health_threshold: 100.000
+								
+								damage_type: explosion
+								damage_type_secondary: explosion
+								flags: none
+								
+								detonate_chance: 1.000
+								detonate_damage_filter: ""
+								
+								shake_multiplier: 5.000
+								force_multiplier: 5.000
+								stun_multiplier: 5.000
+								terrain_radius_multiplier: 5.000
+								
+								smoke_amount: 5.000
+								smoke_lifetime_multiplier: 0.000
+								smoke_velocity_multiplier: 0.000
+								smoke_color: "0x00000000"
+								
+								flash_duration_multiplier: 0.000
+								flash_intensity_multiplier: 0.000
+								
+								fire_amount: 0.000
+								
+								volume: 0.000
+								pitch: 0.000
+								
+								modifier_min: 0.000
+							}
+						}
+					}
+				}
+			]
+		}
+		{
+			name: "Filter"
+			
+			type: formula
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.500
+			
+			options:
+			[
+				{
+					name: "Sawdust"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sawdust
+							amount: 0.263158
+							snapping: 0.500
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: pounding
+							amount: 40.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: shovel, towel
+					}
+					filter_infrastructure:
+					{
+						include: dishes, compactor, blender, press, form
+					}
+				}
+				{
+					name: "Woodchips"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: woodchips
+							amount: 0.344828
+							snapping: 0.050
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: search.plants
+							amount: 40.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: shovel, towel
+					}
+					filter_infrastructure:
+					{
+						include: dishes, compactor, blender, press, form
+					}
+				}
+			]
+		}
+		{
+			name: "Rolling material"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.300
+			
+			options:
+			[
+				{
+					name: "Paper"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: paper
+							amount: 0.046838
+							loss: 0.067
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: rolling
+							amount: 70.000
+							amount_min: 140.000
+							difficulty: 7
+							snapping: 0.500
+							ratio: 0.145
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paper, ruler, cutters, tweezers, magnifying_glass, paintbrush, stapler, file, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, structure
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, cozy, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+		{
+			name: "Box"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.300
+			
+			options:
+			[
+				{
+					name: "Paper"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: paper
+							amount: 0.234192
+							loss: 0.067
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 70.000
+							amount_min: 140.000
+							difficulty: 7
+							snapping: 0.500
+							ratio: 0.145
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paper, ruler, cutters, tweezers, magnifying_glass, paintbrush, stapler, file, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, structure
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, cozy, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: cigarette
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, production
+	tags: manual, crafting, simple, small, weapon, munitions, delicate, blending, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, chair, surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: cigarette
+	}
+	icon_offset: [2.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [8, 8]
+		frame: [3, 2]
+	}
+	icon_extra_offset: [-5.000, -6.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -1.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}

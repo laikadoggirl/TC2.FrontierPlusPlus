@@ -1,0 +1,229 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.74.0"
+	name: "MRL"
+	desc:
+		'''
+		Heavy and unwieldy rocket launcher.
+		Good at blowing up stuff from safe distance.
+
+		Some would say its just a few tubes gluedtogether others have an engineering degree.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Stock"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Fused"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 23.80851
+							loss: 0.200
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 12.000
+							loss: 0.180
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: putty
+							amount: 13.04631
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 3600.000
+							difficulty: 11
+							ratio: 0.133
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: cpt.integration
+							amount: 40.000
+							difficulty: 6
+							ratio: 0.059
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Barrels"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Drilled"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 5.120328
+							snapping: 0.100
+							loss: 0.200
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: drilling
+							amount: 3600.000
+							difficulty: 11
+							ratio: 0.204
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Firing Mechanism"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 3.200
+							loss: 0.220
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 58.25243
+							snapping: 1.000
+							loss: 0.145
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 1500.000
+							difficulty: 6
+							ratio: 0.169
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 300.000
+							difficulty: 9
+							ratio: 0.118
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: mrl
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, wip
+	tags: manual, crafting, complex, huge, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: mrl
+	}
+	icon_offset: [0.000, 3.000]
+	icon_scale: 1.200
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 8.000
+	frame_size: [80.000, 64.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
+}

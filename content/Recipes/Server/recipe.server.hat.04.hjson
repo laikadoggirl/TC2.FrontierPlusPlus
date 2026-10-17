@@ -1,0 +1,215 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Top Hat"
+	desc:
+		'''
+		Only the most fanciest of hats.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		steel.rod: input, auto_generated
+		mushroom: raw, input, auto_generated
+		cloth: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Hat Moulding"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.200
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 8.298948
+							snapping: 0.400
+							loss: 0.078
+							ratio: 0.165
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: leather
+							amount: 0.700
+							snapping: 0.100
+							ratio: 0.016
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 300.000
+							amount_min: 250.000
+							amount_max: 582.000
+							snapping: 25.000
+							falloff: 0.942
+							loss: 0.271
+							ratio: 0.176
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 70.000
+							amount_min: 45.000
+							difficulty: 0
+							group: 0
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+			]
+		}
+		{
+			name: "Feather and Brimming"
+			
+			type: assembly
+			flags: wip
+			tags: assembly
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mushroom
+							amount: 3.500
+							snapping: 0.100
+							loss: 0.298
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: leather
+							amount: 1.582812
+							snapping: 0.100
+							loss: 0.298
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: cloth
+							amount: 1.111112
+							snapping: 0.100
+							loss: 0.298
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: cutting
+							amount: 80.000
+							amount_min: 45.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.950
+							ratio: 0.525
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 60.000
+							amount_min: 35.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.930
+							ratio: 0.329
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, paintbrush, stapler, file, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: hat.04
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item
+	tags: manual, crafting, simple, small, assembling, tailoring
+	hints: none
+	connotations: none
+	infrastructure: table
+	infrastructure_exclude: giant
+	
+	icon:
+	{
+		texture: hat.04
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

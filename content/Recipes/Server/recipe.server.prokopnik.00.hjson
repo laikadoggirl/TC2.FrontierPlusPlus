@@ -1,0 +1,316 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "EC Motor (Prokopnik)"
+	desc:
+		'''
+		A heavy motor powered by essence pellets for larger vehicles.
+		'''
+	
+	stages:
+	[
+		{
+			name: "Frame"
+			
+			type: assembly
+			flags: part
+			tags: frame, shell, metal
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 24.000
+							loss: 0.102
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 42.000
+							loss: 0.118
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 15.000
+							loss: 0.118
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 350.000
+							amount_min: 600.000
+							difficulty: 10
+							ratio: 0.200
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 320.000
+							amount_min: 560.000
+							difficulty: 8
+							ratio: 0.102
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Motor"
+			
+			type: part
+			flags: part
+			tags: mechanism, functional, small, machinery
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "EC-MT"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirglum.plate
+							amount: 26.000
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 60.000
+							snapping: 0.100
+							loss: 0.082
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 340.000
+							amount_min: 680.000
+							difficulty: 9
+							snapping: 10.000
+							ratio: 0.165
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: bending
+							amount: 450.000
+							amount_min: 500.000
+							difficulty: 14
+							snapping: 10.000
+							ratio: 0.090
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: directors
+							amount: 4.917888
+							snapping: 0.100
+							loss: 0.082
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: actuator
+							amount: 3.000
+							snapping: 0.100
+							loss: 0.082
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: calibration
+							amount: 680.000
+							amount_min: 450.000
+							difficulty: 9
+							snapping: 10.000
+							ratio: 0.078
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Binding"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Putty"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: putty
+							amount: 32.61579
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.ingot
+							amount: 10.000
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 320.000
+							amount_min: 980.000
+							difficulty: 10
+							snapping: 10.000
+							ratio: 0.031
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: cpt.integration
+							amount: 100.000
+							difficulty: 8
+							snapping: 10.000
+							ratio: 0.090
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+				{
+					name: "Welding"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirgrafit.clay
+							amount: 10.17122
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.ingot
+							amount: 10.000
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 320.000
+							amount_min: 980.000
+							difficulty: 10
+							snapping: 10.000
+							ratio: 0.239
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: welding
+							amount: 390.000
+							amount_min: 760.000
+							difficulty: 8
+							snapping: 10.000
+							ratio: 0.090
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: motor.prokopnik.00
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, wip
+	tags: manual, crafting, complex, medium, device, vehicle, machinery, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: motor.prokopnik.00
+		size: [32, 16]
+	}
+	
+	color_frame: "0xff0dc9a7"
+	color_button: "0xff9dd80f"
+	rank: 2000.000
+	frame_size: [96.000, 64.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	advance_delay: 0.000
+	
+	version: 0
+}

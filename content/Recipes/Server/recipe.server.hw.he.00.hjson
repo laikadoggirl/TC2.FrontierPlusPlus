@@ -1,0 +1,562 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "HW-106.7MM/HE (High explosive)"
+	desc:
+		'''
+		A large and formidable shell filled with explosives to make large craters on the field and huge holes in fortifications.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		ammo.ac.lv: product
+		ammo.ac.hv: product
+		scrap.copper: residue
+		scrap.steel: residue
+		oil: residue, byproduct
+		water.toxic: waste
+	}
+	
+	stages:
+	[
+		{
+			name: "Casing"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Hammered Steel"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 2.560164
+							snapping: 1.000
+							loss: 0.788
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 200.000
+							amount_min: 600.000
+							difficulty: 10
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.638784
+							amount_extra: 0.161006
+							group: 0
+							flags: residue
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Primer"
+			
+			type: component
+			flags: part
+			tags: functional, small, flat, rounded, material, dangerous
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Nitrosugar"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: punch
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrosugar
+							amount: 0.802139
+							snapping: 0.100
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 1.488095
+							snapping: 0.100
+							falloff: 0.986
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: wadding
+							amount: 60.000
+							amount_min: 48.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.838
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+				}
+				{
+					name: "Nitroglycerine"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.305344
+							snapping: 0.100
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: pouring
+							amount: 25.000
+							amount_min: 220.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.691
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula, ladle
+					}
+				}
+				{
+					name: "Himlkarzenus"
+					
+					type: undefined
+					flags: incomplete
+					discard_damage_type_override: sledgehammer
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: himlkarzenus
+							amount: 1.822323
+							snapping: 0.100
+							falloff: 0.817
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: cramming.solid
+							amount: 15.000
+							amount_min: 60.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 1.002
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Propellant"
+			
+			type: formula
+			flags: important
+			tags: container, assembly, functional, material, dangerous, formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Gunpowder"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 4.347826
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 90.000
+							amount_min: 150.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.972
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, pliers
+						include: wrench, pliers, tweezers, bucket, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, vise
+					}
+				}
+				{
+					name: "Nitrocelulose"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 1.729107
+							snapping: 0.100
+							loss: 0.125
+							ratio: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 70.000
+							amount_min: 65.000
+							difficulty: 7
+							snapping: 10.000
+							falloff: 0.972
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, pliers
+						include: wrench, pliers, tweezers, bucket, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, vise
+					}
+				}
+			]
+		}
+		{
+			name: "Warhead"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Nitro-saw"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.281618
+							loss: 0.035
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 100.000
+							amount_min: 160.000
+							difficulty: 10
+							ratio: 0.063
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 3.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: sawdust
+							amount: 5.210526
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: mixing
+							amount: 90.000
+							amount_min: 100.000
+							difficulty: 7
+							ratio: 0.059
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: wadding
+							amount: 75.000
+							amount_min: 80.000
+							difficulty: 8
+							ratio: 0.027
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 80.000
+							amount_min: 120.000
+							difficulty: 6
+							snapping: 5.000
+							ratio: 0.031
+							group: 2
+							flags: conditional
+						}
+					]
+				}
+				{
+					name: "TNT"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.281618
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 100.000
+							amount_min: 160.000
+							difficulty: 10
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: tnt
+							amount: 2.70636
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: wadding
+							amount: 70.000
+							amount_min: 60.000
+							difficulty: 9
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 80.000
+							amount_min: 120.000
+							difficulty: 6
+							snapping: 5.000
+							ratio: 0.016
+							group: 2
+							flags: conditional
+						}
+					]
+				}
+				{
+					name: "PDX"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.281618
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 100.000
+							amount_min: 160.000
+							difficulty: 10
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: prdex
+							amount: 0.200
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: cloth
+							amount: 2.777778
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: wadding
+							amount: 70.000
+							amount_min: 60.000
+							difficulty: 9
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 80.000
+							amount_min: 120.000
+							difficulty: 6
+							snapping: 5.000
+							ratio: 0.016
+							group: 2
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: ammo.hw.he
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: production, wip
+	tags: manual, crafting, complex, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, chair, surface, machine, workbench
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_offset: [-9.000, 8.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_gunsmith.mini
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	icon_extra_offset: [-16.000, 0.000]
+	
+	icon_c:
+	{
+		texture: resource.ammo.hw.he
+		size: [16, 16]
+	}
+	icon_c_offset: [-8.000, -13.000]
+	icon_c_scale: 1.100
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -55.500
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 0
+}

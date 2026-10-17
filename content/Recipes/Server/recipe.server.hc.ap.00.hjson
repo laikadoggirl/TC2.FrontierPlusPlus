@@ -1,0 +1,860 @@
+﻿{
+	$version: "0.1.75.0"
+	name: "HC-13.2mm"
+	desc:
+		'''
+		High caliber ammunition made 
+		'''
+	tips: []
+	
+	related_materials:
+	{
+	
+	}
+	
+	stages:
+	[
+		{
+			name: "Lubricant"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Animal fat"
+					desc: "using animal fat as a basic lubricant. "
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Greasy "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: tallow
+							amount: 0.956522
+							snapping: 0.100
+							falloff: 0.979
+							loss: 0.008
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: smearing
+							amount: 120.000
+							amount_min: 150.000
+							difficulty: 6
+							snapping: 5.000
+							loss: 0.212
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: oil
+							amount: 0.03779
+							amount_extra: 0.054129
+							group: 0
+							flags: byproduct
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, spatula
+					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
+					}
+				}
+				{
+					name: "Oil"
+					desc: "using oil as simple lubrication. "
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Oily "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: oil
+							amount: 0.267738
+							snapping: 0.100
+							falloff: 0.954
+							loss: 0.016
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: polishing.oil
+							amount: 60.000
+							amount_min: 100.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.950
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: oil
+							amount: 0.035737
+							amount_extra: 0.012811
+							group: 0
+							flags: residue
+						}
+					]
+					
+					filter_tools:
+					{
+						require: towel
+						include: paintbrush, towel
+					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
+					}
+				}
+				{
+					name: "Lubricant"
+					desc: "using high end lubricant for better machine operation leading to more usable output."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Shiny "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: lubricant
+							amount: 1.004566
+							snapping: 0.100
+							falloff: 0.908
+							loss: 1.000
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: polishing.oil
+							amount: 42.000
+							amount_min: 90.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.800
+							ratio: 0.722
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.007662
+							amount_extra: 0.007424
+							group: 0
+							flags: pollutant, waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: towel
+						include: paintbrush, towel
+					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
+					}
+				}
+			]
+		}
+		{
+			name: "Casing"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Copper sheet"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.744048
+							loss: 0.569
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 3.000
+							amount_min: 4.000
+							difficulty: 7
+							snapping: 5.000
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 4.000
+							amount_min: 6.000
+							difficulty: 8
+							snapping: 5.000
+							group: 1
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 2.000
+							amount_min: 9.000
+							difficulty: 6
+							snapping: 5.000
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.copper
+							amount: 0.377777
+							amount_extra: 0.084536
+							group: 0
+							flags: residue
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Copper Bar"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.rod
+							amount: 0.29843
+							loss: 0.569
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 9.000
+							amount_min: 9.000
+							difficulty: 7
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 60.000
+							amount_min: 40.000
+							difficulty: 8
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 9.000
+							amount_min: 10.000
+							difficulty: 8
+							group: 1
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 4.000
+							amount_min: 9.000
+							difficulty: 6
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.copper
+							amount: 0.196336
+							amount_extra: 0.044074
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: copper.powder
+							amount: 0.501229
+							amount_extra: 0.096742
+							group: 0
+							flags: residue
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Steel Sheet"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.853388
+							loss: 0.569
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 4.000
+							amount_min: 5.000
+							difficulty: 10
+							snapping: 5.000
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 4.000
+							amount_min: 7.000
+							difficulty: 11
+							snapping: 5.000
+							group: 1
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 3.000
+							amount_min: 11.000
+							difficulty: 9
+							snapping: 5.000
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.424621
+							amount_extra: 0.107026
+							group: 0
+							flags: residue
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Steel Bar"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.rod
+							amount: 0.342285
+							loss: 0.569
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 9.000
+							amount_min: 9.000
+							difficulty: 10
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 70.000
+							amount_min: 40.000
+							difficulty: 12
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 11.000
+							amount_min: 12.000
+							difficulty: 11
+							group: 1
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 5.000
+							amount_min: 12.000
+							difficulty: 9
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.216748
+							amount_extra: 0.054187
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: steel.powder
+							amount: 0.557565
+							amount_extra: 0.139391
+							group: 0
+							flags: residue
+						}
+					]
+					
+					advance_delay: 2.000
+				}
+			]
+		}
+		{
+			name: "Primer"
+			
+			type: component
+			flags: part
+			tags: functional, small, flat, rounded, material, dangerous
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Nitrosugar"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: punch
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrosugar
+							amount: 1.176471
+							snapping: 0.100
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 2.693452
+							snapping: 0.100
+							falloff: 0.986
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: wadding
+							amount: 35.000
+							amount_min: 48.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.838
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+				}
+				{
+					name: "Nitroglycerine"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.408906
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: pouring
+							amount: 18.000
+							amount_min: 220.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.691
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula, ladle
+					}
+				}
+				{
+					name: "Himlkarzenus"
+					
+					type: undefined
+					flags: incomplete
+					discard_damage_type_override: sledgehammer
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: himlkarzenus
+							amount: 3.2372
+							snapping: 0.100
+							falloff: 0.817
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: cramming.solid
+							amount: 3.000
+							amount_min: 60.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 1.002
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Propellant"
+			
+			type: formula
+			flags: important
+			tags: container, assembly, functional, material, dangerous, formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Nitrocelulose"
+					desc: "The heavy projectile needs stronger propellant. "
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+					
+					suffix: "/AP"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 2.247838
+							snapping: 0.100
+							falloff: 0.980
+							ratio: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 20.000
+							amount_min: 50.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.972
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, pliers
+						include: wrench, pliers, tweezers, bucket, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, vise
+					}
+				}
+			]
+		}
+		{
+			name: "Bullets"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Picked Scrap"
+					desc: " Using smirgrafit scrap for heavy armour piearcing projectiles."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.smirgrafit
+							amount: 0.26122
+							falloff: 0.970
+							loss: 0.416
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 120.000
+							amount_min: 180.000
+							difficulty: 7
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 110.000
+							amount_min: 90.000
+							difficulty: 6
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.hc.ap
+							amount: 1.000
+							snapping: 1.000
+							group: 0
+							ratio: 0.690
+							flags: primary, compact, scale_to_mass, add_to_residues
+						}
+					]
+				}
+				{
+					name: "Cut smirglum"
+					desc: "Cut smirglum is used for heavy armour piearcing projectiles."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirglum.plate
+							amount: 0.155965
+							loss: 0.376
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 200.000
+							amount_min: 280.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.990
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: hammering
+							amount: 160.000
+							amount_min: 180.000
+							difficulty: 7
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 140.000
+							amount_min: 140.000
+							difficulty: 6
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.hc.ap
+							amount: 1.000
+							snapping: 1.000
+							group: 0
+							ratio: 0.569
+							flags: primary, compact, scale_to_mass, add_to_residues
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, wip
+	tags: manual, crafting, complex, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, chair, surface, machine, workbench
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_gunsmith.mini
+		size: [16, 16]
+		frame: [12, 0]
+	}
+	icon_offset: [8.000, 4.000]
+	
+	icon_extra:
+	{
+		size: [16, 16]
+	}
+	icon_extra_offset: [1.000, 1.000]
+	
+	icon_c:
+	{
+		texture: resource.ammo.hc.ap
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-8.000, -11.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -55.60001
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 0
+}

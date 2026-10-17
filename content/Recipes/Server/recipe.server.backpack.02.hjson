@@ -1,0 +1,274 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "Ammo pouch"
+	tips:
+	[
+		"Requires more leather compared to backpack"
+		"Lower weight and capacity"
+		"Simpler to craft"
+		"More durable"
+	]
+	
+	related_materials:
+	{
+		leather: raw, input, auto_generated
+		glue: liquid, input, auto_generated
+		steel.frames: input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Body"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			ratio: 0.750
+			mass_base: 1.200
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: leather
+							amount: 1.875
+							snapping: 0.500
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: slicing
+							amount: 175.000
+							amount_min: 80.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.880
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: glue
+							amount: 0.365768
+							snapping: 0.500
+							falloff: 0.910
+							loss: 0.024
+							group: 1
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 180.000
+							amount_min: 125.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.830
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: sewing
+							amount: 250.000
+							amount_min: 50.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.900
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife, needle
+						include: ruler, cutters, screwdriver, cleaver, tweezers, paintbrush, stapler, file, knife, needle, pins, scissors, utensils
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+		{
+			name: "Compartments"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			ratio: 0.250
+			mass_base: 0.400
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.160
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 0.776699
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 120.000
+							amount_min: 80.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.800
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife, needle
+						include: cutters, screwdriver, tweezers, stapler, knife, needle, pins, scissors
+					}
+				}
+			]
+		}
+		{
+			name: "Straps"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			ratio: 0.250
+			mass_base: 0.400
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: leather
+							amount: 0.949364
+							snapping: 0.500
+							loss: 0.055
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.048496
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sewing
+							amount: 250.000
+							amount_min: 150.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.800
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife, needle
+						include: cutters, screwdriver, tweezers, stapler, knife, needle, pins, scissors
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: backpack.02
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: item, wip
+	tags: manual, crafting, basic, simple, tailoring
+	hints: none
+	connotations: none
+	infrastructure: table
+	infrastructure_exclude: giant
+	
+	icon:
+	{
+		texture: backpack.02
+		size: [16, 8]
+	}
+	icon_offset: [0.000, 2.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: 0.000
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 1
+}

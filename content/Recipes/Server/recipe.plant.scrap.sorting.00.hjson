@@ -1,0 +1,279 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Plantstuff sorting"
+	tips: []
+	
+	related_materials:
+	{
+		plants: ingredient
+		tobacco: product
+		opium: product
+		cmajzl: product
+		onion.juice: product
+		pestilence: waste
+		meth: product
+	}
+	
+	stages:
+	[
+		{
+			name: "Focus"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Usable"
+					desc: "Search for stuff you could use in something."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: plants
+							amount: 108.6956
+							snapping: 0.500
+							falloff: 0.970
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 45.000
+							amount_min: 50.000
+							difficulty: 9
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 20.000
+							amount_min: 70.000
+							difficulty: 8
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: tobacco
+							amount: 1.384614
+							amount_extra: 4.615386
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: opium
+							amount: 0.830772
+							amount_extra: 2.769228
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: meth
+							amount: 0.930498
+							amount_extra: 3.101645
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: onion.juice
+							amount: 0.482605
+							amount_extra: 0.402171
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: cmajzl
+							amount: 2.326412
+							amount_extra: 0.651391
+							group: 0
+							flags: waste, byproduct
+						}
+						{
+							type: resource
+							material: plants
+							amount: 15.28535
+							amount_extra: 4.27987
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: pestilence
+							amount: 1.686268
+							amount_extra: 0.472153
+							group: 0
+							flags: waste
+						}
+						{
+							type: prefab
+							prefab: hornet
+							amount: 1.000
+							amount_extra: 1.000
+							group: 0
+							chance: 0.102
+							flags: spawn, hidden
+						}
+					]
+					
+					filter_tools:
+					{
+						require: saw
+						include: hammer, cutters, bucket, axe
+					}
+					filter_infrastructure:
+					{
+						include: chair, surface, structure, building
+					}
+				}
+				{
+					name: "Living"
+					desc: "This pile of plantstuff seems to be moving slightly, you can try to catch whaterver is moving in there, or it could just be the wind."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: plants
+							amount: 271.7391
+							snapping: 0.500
+							falloff: 0.970
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 45.000
+							amount_min: 50.000
+							difficulty: 9
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 20.000
+							amount_min: 70.000
+							difficulty: 8
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: plants
+							amount: 5.423685
+							amount_extra: 1.518623
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: pestilence
+							amount: 2.168534
+							amount_extra: 0.607187
+							group: 0
+							flags: waste
+						}
+						{
+							type: prefab
+							prefab: hornet
+							amount: 1.000
+							group: 0
+							chance: 0.600
+							flags: byproduct, compact, precalculated
+						}
+						{
+							type: prefab
+							prefab: badger
+							amount: 1.000
+							group: 0
+							chance: 0.298
+							flags: byproduct, compact, precalculated
+						}
+						{
+							type: prefab
+							prefab: twuk
+							amount: 1.000
+							group: 0
+							chance: 0.149
+							flags: byproduct, compact, precalculated
+						}
+					]
+					
+					filter_tools:
+					{
+						require: cutters
+						include: hammer, saw, bucket, axe
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, surface, structure, building
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: manual, crafting, dumb, crude, salvaging, gathering, separation, messy
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_offset: [-6.000, -17.000]
+	
+	icon_extra:
+	{
+		texture: resource.plants
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_extra_offset: [-6.000, -7.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	rank: -996.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}

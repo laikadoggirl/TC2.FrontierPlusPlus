@@ -1,0 +1,122 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "Leather Jerkin"
+	desc:
+		'''
+		A leather overcoat, will help you shrug off rain but not bullets.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		cloth: input, auto_generated
+		leather: raw, input, auto_generated
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Coat"
+			
+			type: part
+			flags: wip, incomplete
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			mass_base: 5.200
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 1.111111
+							snapping: 0.400
+							loss: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: leather
+							amount: 5.625
+							snapping: 0.400
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 160.000
+							amount_min: 65.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.946
+							ratio: 0.914
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: cutters, pliers, tweezers, knife, needle, pins, scissors, utensils
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: armor.01
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: item, production, wip
+	tags: manual, crafting, basic, simple, assembling, tailoring, metalworking, construction
+	hints: none
+	connotations: none
+	infrastructure: table, surface
+	infrastructure_exclude: giant
+	environment_filter:
+	{
+		exclude: form, sealed
+	}
+	
+	icon:
+	{
+		texture: armor.01
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: 0.000
+	frame_size: [48.000, 48.000]
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

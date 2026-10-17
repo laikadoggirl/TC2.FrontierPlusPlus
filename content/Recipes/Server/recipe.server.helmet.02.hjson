@@ -1,0 +1,244 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.74.0"
+	name: "Helmet (Mastiff)"
+	desc:
+		'''
+		Standard light helmet with goggles and ear protection.
+
+		Loved by explorers of all backgrounds and undergrounds.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		steel.rod: input, auto_generated
+		mushroom: raw, input, auto_generated
+		cloth: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.200
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.379758
+							snapping: 0.400
+							loss: 0.102
+							ratio: 0.165
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.240
+							snapping: 0.250
+							loss: 0.227
+							ratio: 0.220
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: leather
+							amount: 3.750
+							snapping: 0.100
+							ratio: 0.016
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 160.000
+							amount_min: 120.000
+							difficulty: 8
+							snapping: 25.000
+							falloff: 0.960
+							ratio: 0.200
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: glass
+							amount: 0.714286
+							snapping: 0.100
+							ratio: 0.016
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 2.900
+							snapping: 0.100
+							ratio: 0.016
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 80.000
+							amount_min: 50.000
+							difficulty: 0
+							snapping: 0.100
+							ratio: 0.016
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+			]
+		}
+		{
+			name: "Ear protection"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.200
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mushroom
+							amount: 3.448276
+							snapping: 0.400
+							loss: 0.102
+							ratio: 0.165
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 3.106796
+							snapping: 0.400
+							loss: 0.102
+							ratio: 0.165
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 80.000
+							amount_min: 90.000
+							difficulty: 8
+							snapping: 25.000
+							falloff: 0.960
+							ratio: 0.200
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+				{
+					name: "Repurpused"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: earmuffs.00
+							amount: 1.000
+							group: 0
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: helmet.03
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item
+	tags: manual, crafting, simple, small, assembling, tailoring
+	hints: none
+	connotations: none
+	infrastructure: table
+	infrastructure_exclude: giant
+	
+	icon:
+	{
+		texture: helmet.03
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

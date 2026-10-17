@@ -1,0 +1,205 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.74.0"
+	name: "Bandana"
+	desc:
+		'''
+		Used by criminals to prevent misunderstandings by making their intent more clear on first sight.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		steel.rod: input, auto_generated
+		mushroom: raw, input, auto_generated
+		cloth: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Material"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.200
+			
+			options:
+			[
+				{
+					name: "Cloth"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 3.333333
+							snapping: 0.400
+							loss: 0.078
+							ratio: 0.165
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 40.000
+							amount_min: 20.000
+							difficulty: 4
+							snapping: 25.000
+							loss: 0.271
+							ratio: 0.176
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+				{
+					name: "Leather"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: leather
+							amount: 4.375
+							snapping: 0.400
+							loss: 0.078
+							ratio: 0.165
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 80.000
+							amount_min: 30.000
+							difficulty: 4
+							snapping: 25.000
+							loss: 0.271
+							ratio: 0.176
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+				{
+					name: "Found"
+					desc: " May be better to wash beafore wearing."
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.cloth
+							amount: 9.775281
+							snapping: 0.400
+							loss: 0.078
+							ratio: 0.165
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 120.000
+							amount_min: 80.000
+							difficulty: 4
+							snapping: 25.000
+							loss: 0.271
+							ratio: 0.176
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 0.768518
+							amount_extra: 1.537037
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.cloth
+							amount: 0.918352
+							amount_extra: 1.836704
+							group: 0
+							flags: residue
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: bandana.00
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item
+	tags: manual, crafting, simple, small, assembling, tailoring
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: giant
+	
+	icon:
+	{
+		texture: bandana.00
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

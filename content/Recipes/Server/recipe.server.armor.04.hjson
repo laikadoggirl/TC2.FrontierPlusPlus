@@ -1,0 +1,200 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "Bernard-Class Armor"
+	tips: []
+	
+	related_materials:
+	{
+		cloth: input, auto_generated
+		leather: raw, input, auto_generated
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Trenchcoat"
+			
+			type: part
+			flags: wip, incomplete
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			mass_base: 5.200
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 4.166667
+							snapping: 0.400
+							loss: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: leather
+							amount: 3.750
+							snapping: 0.400
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 160.000
+							amount_min: 65.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.946
+							ratio: 0.914
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: cutters, pliers, tweezers, knife, needle, pins, scissors, utensils
+					}
+				}
+			]
+		}
+		{
+			name: "Ballistic Vest"
+			
+			type: part
+			flags: wip, incomplete
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: club
+			
+			mass_base: 7.100
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 1.024066
+							snapping: 0.500
+							loss: 0.141
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.080
+							snapping: 0.100
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 200.000
+							amount_min: 50.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.976
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 200.000
+							amount_min: 50.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.976
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, pliers, paintbrush, file, chisel
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: armor.04
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: item, production, wip
+	tags: manual, crafting, basic, simple, assembling, tailoring, metalworking, construction
+	hints: none
+	connotations: none
+	infrastructure: table, surface
+	infrastructure_exclude: giant
+	environment_filter:
+	{
+		exclude: form, sealed
+	}
+	
+	icon:
+	{
+		texture: armor.04
+		mask: armor.04.mask
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: 0.000
+	frame_size: [48.000, 48.000]
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

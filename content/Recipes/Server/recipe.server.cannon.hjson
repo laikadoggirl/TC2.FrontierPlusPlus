@@ -1,0 +1,308 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "Howitzer"
+	desc:
+		'''
+		Heavy artillery cannon for long-range shelling.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Barrel"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Fused bricks"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 100.000
+							loss: 0.200
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 80.000
+							loss: 0.180
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: putty
+							amount: 13.04631
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: phlogiston
+							amount: 60.000
+							snapping: 1.000
+							ratio: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 3600.000
+							difficulty: 11
+							ratio: 0.133
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: welding.phlogiston
+							amount: 4800.000
+							difficulty: 10
+							ratio: 0.059
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: cpt.integration
+							amount: 60.000
+							difficulty: 5
+							ratio: 0.059
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Breach"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Solid"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 40.000
+							loss: 0.145
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 20.000
+							loss: 0.220
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: putty
+							amount: 3.913894
+							loss: 0.188
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 77.66991
+							snapping: 1.000
+							loss: 0.145
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 700.000
+							difficulty: 6
+							ratio: 0.169
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 1400.000
+							difficulty: 9
+							ratio: 0.118
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: cpt.integration
+							amount: 60.000
+							difficulty: 5
+							ratio: 0.106
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Recoil spring"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Cut"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 40.000
+							loss: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: putty
+							amount: 1.630789
+							loss: 0.157
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: phlogiston
+							amount: 13.98601
+							snapping: 1.000
+							loss: 0.188
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: welding.phlogiston
+							amount: 900.000
+							difficulty: 8
+							ratio: 0.243
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: cpt.integration
+							amount: 60.000
+							difficulty: 6
+							ratio: 0.243
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 2400.000
+							difficulty: 12
+							ratio: 0.224
+							group: 2
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 1600.000
+							difficulty: 9
+							ratio: 0.176
+							group: 2
+							flags: simultaneous, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: cannon
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, wip
+	tags: manual, crafting, complex, huge, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: cannon
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 8.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
+}
