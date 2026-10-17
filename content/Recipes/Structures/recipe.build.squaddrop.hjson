@@ -1,0 +1,127 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Squadron Call-in"
+	desc:
+		'''
+		Call a large squad of 8 soldiers to be paradropped into the battlefield.
+		'''
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 45900.000
+			snapping: 0.500
+			loss: 0.118
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: prefab
+			prefab: communicator.00
+			amount: 1.000
+			group: 0
+			flags: no_consume, prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: container.personnel.drop
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: architecture
+	flags: no_amount_multiplier
+	tags: fermenting
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	h_company: lufthanz
+	
+	icon:
+	{
+		texture: container.personnel.padded.00
+		size: [40, 24]
+	}
+	icon_offset: [-23.000, 18.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-33.000, -46.000]
+	icon_extra_scale: 1.420
+	
+	icon_c:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [3, 6]
+	}
+	icon_c_offset: [-20.000, -17.000]
+	icon_c_scale: 1.280
+	
+	color_frame: "0xffff0021"
+	color_button: "0xff9dd80f"
+	rank: -550.000
+	frame_size: [128.000, 96.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, allow_placement_over_buildings
+		
+		size: [3.000, 2.000]
+		offset: [0.000, -67.625]
+		
+		rect_clearance: [-0.850, -1.700, 0.950, 0.600]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_clearance: 0.990
+		min_claim: 1.000
+		max_range: 500.000
+		
+		rotation_max: 0.2673
+		
+		sound: phone.out.00
+		
+		physics_filter:
+		{
+			require: solid
+			include: crate, furniture
+		}
+		
+		snapping_filter:
+		{
+			include: world
+		}
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	h_sound_begin: phone.in.00
+	
+	version: 1
+}

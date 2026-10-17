@@ -1,0 +1,129 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Stationary Zapper"
+	desc:
+		'''
+		Dangerous defense mechanism that will zap anything that comes in its way.
+
+		Practice upmost caution.
+
+		'''
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.ingot
+			amount: 75.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 35.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: cement
+			amount: 352.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: smirglum.plate
+			amount: 55.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: pellet.electricity
+			amount: 25.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: copper.plate
+			amount: 65.000
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: stationaryzapper
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: machinery
+	flags: blueprintable, construction, wip
+	tags: complex, large, machinery, assembling, metalworking, metallurgy, engineering, military, architecture, construction
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: zapper.00
+		size: [26, 43]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -232.000
+	frame_size: [96.000, 112.000]
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, require_terrain, terrain_is_support, no_solid_support
+		
+		size: [2.000, 4.000]
+		offset: [0.400, -2.500]
+		
+		rect_foundation: [-1.350, 0.000, 2.050, 1.000]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-1.500, -5.400, 2.100, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.950
+		min_clearance: 0.950
+		min_claim: 1.000
+		max_range: 35.000
+		
+		length_max: 10.000
+		
+		rotation_max: 5.000
+		rotation_step: 0.0491
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: none
+		}
+		snapping_flags: snap_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 0
+}

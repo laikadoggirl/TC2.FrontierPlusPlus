@@ -1,0 +1,104 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Trashcan"
+	desc:
+		'''
+		Common sight on sidewalks used exclusively by protestors to showcase feelings of disapproval.
+		'''
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.plate
+			amount: 9.000
+			snapping: 0.500
+			loss: 0.118
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 12.000
+			snapping: 0.500
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: trashcan.01
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: architecture
+	flags: no_amount_multiplier, blueprintable
+	tags: basic, simple, woodworking, construction
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: trashcan
+		size: [12, 15]
+	}
+	
+	color_frame: "0xffc54e5e"
+	color_button: "0xff9dd80f"
+	rank: -550.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, allow_placement_over_buildings
+		
+		size: [3.000, 2.000]
+		offset: [0.000, -0.500]
+		
+		rect_clearance: [-0.850, -1.700, 0.950, 0.600]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_clearance: 0.990
+		min_claim: 1.000
+		max_range: 1.500
+		
+		rotation_max: 0.2673
+		
+		sound: building_place
+		
+		physics_filter:
+		{
+			require: solid
+			include: crate, furniture
+		}
+		
+		snapping_filter:
+		{
+			include: world
+		}
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 1
+}

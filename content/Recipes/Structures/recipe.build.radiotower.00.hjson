@@ -1,0 +1,133 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Radio Tower"
+	desc:
+		'''
+		Are you a faction looking to inspire fear into your subjects?
+
+		Use this Radio Tower to broadcast Icecast streams throughout the entire realm!
+		'''
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.ingot
+			amount: 25.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.plate
+			amount: 65.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 85.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: cement
+			amount: 250.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: wood
+			amount: 60.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: directors
+			amount: 25.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: actuator
+			amount: 6.000
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: radio_station
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: machinery
+	flags: blueprintable, construction, wip
+	tags: complex, large, machinery, assembling, metalworking, metallurgy, engineering, military, architecture, construction
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: radio_tower.00.bg
+		size: [32, 128]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -232.000
+	frame_size: [50.000, 30.000]
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, require_terrain, terrain_is_support, no_solid_support
+		
+		size: [2.000, 4.000]
+		offset: [0.400, -7.250]
+		
+		rect_foundation: [-2.550, 0.000, 3.250, 1.000]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-2.500, -14.900, 3.199999, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.950
+		min_clearance: 0.950
+		min_claim: 1.000
+		max_range: 9.000
+		
+		rotation_max: 0.589
+		rotation_step: 0.0491
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: none
+		}
+		snapping_flags: snap_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 0
+}
