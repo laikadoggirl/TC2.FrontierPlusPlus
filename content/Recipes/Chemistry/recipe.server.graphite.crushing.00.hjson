@@ -1,0 +1,185 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.74.0"
+	name: "Graphite"
+	
+	stages:
+	[
+		{
+			name: "Metohd"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Crushing"
+					desc: "Crush graphite to make some powder."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Crushed "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: graphite
+							amount: 3.225806
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: crushing
+							amount: 25.000
+							amount_min: 60.000
+							difficulty: 10
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: sweeping.dust
+							amount: 50.000
+							amount_min: 30.000
+							difficulty: 7
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: graphite.powder
+							amount: 0.258
+							amount_extra: 0.0324
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: graphite
+							amount: 2.823005
+							amount_extra: 0.031833
+							snapping: 0.100
+							group: 0
+							flags: residue
+						}
+					]
+				}
+				{
+					name: "Grinding"
+					desc: "Grind graphite to reliably make powder."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Ground "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: graphite
+							amount: 3.225806
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: grinding
+							amount: 80.000
+							amount_min: 140.000
+							difficulty: 11
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: sweeping.dust
+							amount: 95.000
+							amount_min: 140.000
+							difficulty: 6
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: graphite.powder
+							amount: 0.683334
+							amount_extra: 1.822222
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: graphite
+							amount: 0.240213
+							amount_extra: 0.029787
+							group: 0
+							flags: residue
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production
+	tags: simple, metallurgy, refining, heating, processing
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: hammer
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-20.000, -4.000]
+	
+	icon_extra:
+	{
+		texture: resource.graphite
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-30.000, -11.000]
+	
+	icon_c:
+	{
+		texture: resource.graphite.powder
+		size: [16, 16]
+		frame: [2, 1]
+	}
+	icon_c_offset: [-7.000, -11.000]
+	
+	color_frame: "0xffcfd522"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	frame_size: [64.000, 16.000]
+	
+	min: 1
+	max: 20
+	
+	version: 0
+}

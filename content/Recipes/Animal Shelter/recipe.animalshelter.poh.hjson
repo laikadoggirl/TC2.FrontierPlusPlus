@@ -1,0 +1,231 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Growing Poh"
+	desc:
+		'''
+		A large, territorial animal; the Poh is a large beast that'll provide you plenty of protection.
+
+		Or leather.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		money: product
+		arcanite: ingredient
+		arcanite.ingot: ingredient
+		arcanite.plate: ingredient
+		arcanite.rod: ingredient
+		arcanite.powder: ingredient
+	}
+	
+	stages:
+	[
+		{
+			name: "Poh Procuration"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Buying"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 865.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 280.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Storing Feed"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Cmajzl"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cmajzl
+							amount: 2892.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 350.000
+							amount_min: 15.000
+							difficulty: 6
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+				{
+					name: "Just About Anything"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: plants
+							amount: 1508.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: flour
+							amount: 608.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 950.000
+							amount_min: 15.000
+							difficulty: 5
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Growth"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Waiting"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: drying
+							amount: 70.000
+							amount_min: 30.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.521
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: poh
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: agriculture
+	hints: none
+	connotations: none
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: poh.body.a
+		size: [22, 23]
+	}
+	icon_offset: [-29.000, -1.000]
+	
+	icon_extra:
+	{
+		texture: poh.head
+		size: [15, 15]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-47.000, -28.000]
+	
+	icon_c:
+	{
+		texture: terrain.clay.grass
+		size: [46, 19]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-3.000, -4.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	button_name: "select"
+	rank: 179.000
+	frame_size: [96.000, 64.000]
+	
+	min: 1
+	max: 2
+	step: 1
+	
+	h_sound_begin: poh.growl.00
+	h_sound_complete: poh.growl.01
+	h_sound_finalize: poh.growl.02
+	
+	version: 1
+}

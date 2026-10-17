@@ -1,0 +1,277 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Sell arcanite"
+	desc:
+		'''
+		Sell a varitery of arcanite materials.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		money: product
+		arcanite: ingredient
+		arcanite.ingot: ingredient
+		arcanite.plate: ingredient
+		arcanite.rod: ingredient
+		arcanite.powder: ingredient
+	}
+	
+	stages:
+	[
+		{
+			name: "Object"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Arcanite sheet"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: arcanite.plate
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 80.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 250.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Arcanite bar"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: arcanite.rod
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 80.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 700.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Arcanite bricks"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: arcanite.ingot
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 80.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 900.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Arcanite chunk"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: arcanite
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 80.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 620.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Arcanite powder"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: arcanite.powder
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 80.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 46.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	type: buy
+	flags: blueprintable, item, production
+	tags: manual, crafting, simple, small, weapon, munitions, delicate, blending, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, chair, surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		size: [16, 16]
+	}
+	icon_offset: [0.000, -7.000]
+	
+	icon_extra:
+	{
+		texture: ui_icon_coin2
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [2.000, -2.000]
+	
+	icon_c:
+	{
+		texture: resource.arcanite.plate
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-7.000, -10.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xfffff500"
+	button_name: "sell"
+	rank: 104.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 1
+}

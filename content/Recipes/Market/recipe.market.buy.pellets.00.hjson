@@ -1,0 +1,450 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.75.1"
+	name: "Buy pellets"
+	tips: []
+	
+	related_materials:
+	{
+		money: ingredient
+		pellet.anger: product
+		pellet.cognition: product
+		pellet.electricity: product
+		pellet.failure: product
+		pellet.heat: product
+		pellet.life: product
+		pellet.motion: product
+		pellet.radiance: product
+		pellet: product
+	}
+	
+	stages:
+	[
+		{
+			name: "Object"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Blank"
+					desc: "Buy empty pellets ready to be infused with free range essence. !!!!!!!!!!!CURRENTLY NO USE WILL FIX INFUSER LATER!!!!!!!!!!"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 25.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 60.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pellet
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Anger"
+					desc: "Pellets infused with anger essence, vilent, hard to control yet very powerful. It is belived a large ammount of this  essence comes to existance during sports week."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 180.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 680.000
+							difficulty: 10
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pellet.anger
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Cognition"
+					desc: "Pellets infused with cognition essence, capable of altering reality to some degree, or act as a clock, has cooling properties. Very little is known about the origin of this essence."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 1600.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 1000.000
+							difficulty: 12
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pellet.cognition
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Electricity"
+					desc: "Pellets infused with electricity essence, capable of powering devices and creating an electric current. Mostly originates from lightning strikes however trace ammounts come to be near generators and motors."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 650.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 800.000
+							difficulty: 10
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pellet.electricity
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Failure"
+					desc: "Pellets infused with failure essence, makes you stub your toe, your wife divorce you and the chemical laboratory overheat. Originates from large scale industrial incidents and failed stunts."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 95.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 300.000
+							difficulty: 10
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pellet.failure
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Thermal"
+					desc: "Pellets infused with thermal essence, the most commonly found essence, it heats things up and has a faint glow. A large ammount was created during the terraforming Smrtec."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 220.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 580.000
+							difficulty: 10
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pellet.heat
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Life"
+					desc: "Pellets infused with life essence, absorbs heat and makes alive things grow out of control usualy resulting in pestilance and cancer. Places that have huge biodiversity produce some life essence."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 270.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 650.000
+							difficulty: 10
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pellet.life
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Motion"
+					desc: "Pellets infused with motion essence, makes things move and heat up. Originates from fast moving objects such as asteroids, space ships, trains and your cat in the middle of the night."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 420.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 750.000
+							difficulty: 10
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pellet.motion
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Radiance"
+					desc: "Pellets infused with radiance essence, produces a strong light that will heat up objects. Originates from sources of electromagnetic waves such as bulbs, radio towers and radioactive materials."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 360.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 600.000
+							difficulty: 10
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pellet.radiance
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	type: buy
+	flags: blueprintable, item, production
+	tags: manual, crafting, simple, small, weapon, munitions, delicate, blending, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, chair, surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: atlas.resource.pellet
+		size: [16, 16]
+		frame: [6, 0]
+	}
+	icon_offset: [-9.000, -1.000]
+	
+	icon_extra:
+	{
+		texture: atlas.resource.pellet
+		size: [16, 16]
+		frame: [1, 1]
+	}
+	icon_extra_offset: [-7.000, -9.000]
+	
+	icon_c:
+	{
+		texture: atlas.resource.pellet
+		size: [16, 16]
+		frame: [3, 7]
+	}
+	icon_c_offset: [-17.000, -12.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xfffff500"
+	button_name: "Buy"
+	rank: 500.000
+	frame_size: [64.000, 0.000]
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}

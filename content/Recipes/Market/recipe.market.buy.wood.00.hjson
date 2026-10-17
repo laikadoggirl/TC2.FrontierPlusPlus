@@ -1,0 +1,279 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Buy wood"
+	desc:
+		'''
+		Asorted timber and planks avialable for consumers and their timbery needs.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		money: ingredient
+		timber.oak: product
+		timber.pine: product
+		timber.maple: product
+		wood.rod: product
+		wood: product
+	}
+	
+	stages:
+	[
+		{
+			name: "Object"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Pine"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 25.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 60.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: timber.pine
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Oak"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 58.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 60.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: timber.oak
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Maple"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 36.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 60.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: timber.maple
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Planks"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 5.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 60.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Wood bar"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 5.500
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 40.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	type: buy
+	flags: blueprintable, item, production
+	tags: manual, crafting, simple, small, weapon, munitions, delicate, blending, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, chair, surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.timber.oak
+		size: [24, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-6.000, -1.000]
+	
+	icon_extra:
+	{
+		texture: resource.wood
+		size: [20, 16]
+		frame: [3, 0]
+	}
+	icon_extra_offset: [-7.000, -9.000]
+	
+	icon_c:
+	{
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-18.000, -13.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xfffff500"
+	button_name: "Buy"
+	rank: 500.000
+	frame_size: [64.000, 0.000]
+	
+	min: 1
+	max: 500
+	step: 1
+	
+	version: 1
+}

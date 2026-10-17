@@ -1,0 +1,216 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.75.1"
+	name: "EC-Thermolegulator (Heater)"
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Body"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 3.200
+							snapping: 0.100
+							loss: 0.353
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: copper.plate
+							amount: 4.464286
+							snapping: 0.500
+							loss: 0.302
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 7.766991
+							snapping: 0.500
+							loss: 0.384
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 100.000
+							amount_min: 200.000
+							difficulty: 9
+							snapping: 10.000
+							ratio: 0.110
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 80.000
+							amount_min: 90.000
+							difficulty: 8
+							snapping: 10.000
+							ratio: 0.133
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 200.000
+							amount_min: 120.000
+							difficulty: 9
+							snapping: 10.000
+							ratio: 0.184
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "EC-recepticle"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: directors
+							amount: 3.850
+							snapping: 0.500
+							loss: 0.157
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: copper.rod
+							amount: 2.000
+							snapping: 0.500
+							loss: 0.204
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: drilling
+							amount: 90.000
+							amount_min: 180.000
+							difficulty: 6
+							snapping: 50.000
+							ratio: 0.267
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 100.000
+							amount_min: 250.000
+							difficulty: 7
+							ratio: 0.267
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 300.000
+							amount_min: 200.000
+							difficulty: 8
+							ratio: 0.208
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: ec.heater.00
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, wip
+	tags: manual, crafting, complex, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: table, vise, surface, hard_surface, workbench
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ec.heater.00
+	}
+	icon_offset: [2.000, -2.000]
+	
+	icon_extra:
+	{
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-57.000, -8.000]
+	
+	color_frame: "0xffe29119"
+	color_button: "0xff9dd80f"
+	rank: 2.000
+	frame_size: [32.000, 32.000]
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 0
+}

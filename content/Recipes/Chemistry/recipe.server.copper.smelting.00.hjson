@@ -1,0 +1,594 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Smelted Copper"
+	desc:
+		'''
+		smelt any copper bits you can find 
+		'''
+	
+	related_materials:
+	{
+		copper.gravel: input
+		copper.plate: product, input
+		copper.ingot: product, input
+		copper.powder: input
+		copper.rod: product, input
+		copper: product, input
+		slag: waste
+		scrap.copper: input
+	}
+	
+	stages:
+	[
+		{
+			name: "Feedstock"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Raw"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.gravel
+							amount: 1.000
+							loss: 0.980
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 0.057
+							group: 0
+							ratio: 0.322
+							flags: waste, scale_to_mass, add_to_residues
+						}
+					]
+				}
+				{
+					name: "Dirty"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.copper
+							amount: 1.000
+							loss: 0.949
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 0.057
+							group: 0
+							ratio: 0.078
+							flags: waste, scale_to_mass, add_to_residues
+						}
+					]
+				}
+				{
+					name: "Pure"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.powder
+							amount: 1.000
+							loss: 0.996
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 0.057
+							group: 0
+							ratio: 0.012
+							flags: waste, scale_to_mass, add_to_residues
+						}
+					]
+				}
+				{
+					name: "Chunky"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper
+							amount: 1.000
+							loss: 0.996
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 0.057
+							group: 0
+							ratio: 0.008
+							flags: waste, scale_to_mass, add_to_residues
+						}
+					]
+				}
+				{
+					name: "Sheets"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 1.000
+							loss: 0.992
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 0.057
+							group: 0
+							ratio: 0.012
+							flags: waste, scale_to_mass, add_to_residues
+						}
+					]
+				}
+				{
+					name: "Bars"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.rod
+							amount: 1.000
+							loss: 0.992
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 0.057
+							group: 0
+							ratio: 0.012
+							flags: waste, scale_to_mass, add_to_residues
+						}
+					]
+				}
+				{
+					name: "Bricked"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.ingot
+							amount: 1.000
+							loss: 0.992
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 0.057
+							group: 0
+							ratio: 0.008
+							flags: waste, scale_to_mass, add_to_residues
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Processing"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Melting"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 1180.000
+							amount_min: 1000.000
+							amount_max: 1280.000
+							falloff: 0.819
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 5.000
+							amount_min: 95.000
+							amount_max: 1280.000
+							difficulty: 0
+							snapping: 5.000
+							falloff: 0.710
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Casting"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Bricks"
+					desc: "into bricks."
+					
+					type: undefined
+					flags: none
+					
+					suffix: " bricks."
+					
+					requirements:
+					[
+						{
+							type: work
+							work: casting
+							amount: 2.000
+							amount_min: 45.000
+							amount_max: 1100.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 290.000
+							amount_min: 273.400
+							amount_max: 400.000
+							falloff: 0.423
+							group: 1
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: cooling
+							amount: 4.000
+							amount_min: 195.000
+							amount_max: 1100.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.900
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.ingot
+							amount: 1.000
+							group: 0
+							ratio: 1.000
+							flags: primary, scale_to_mass, add_to_residues
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Sheets"
+					desc: "into sheets."
+					
+					type: undefined
+					flags: none
+					
+					suffix: " sheets."
+					
+					requirements:
+					[
+						{
+							type: work
+							work: casting
+							amount: 3.000
+							amount_min: 45.000
+							amount_max: 1100.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 290.000
+							amount_min: 273.400
+							amount_max: 400.000
+							falloff: 0.423
+							group: 1
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: cooling
+							amount: 1.000
+							amount_min: 195.000
+							amount_max: 1100.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.900
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 1.000
+							group: 0
+							ratio: 1.000
+							flags: primary, scale_to_mass, add_to_residues
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Bars"
+					desc: "into bars."
+					
+					type: undefined
+					flags: none
+					
+					suffix: " bars."
+					
+					requirements:
+					[
+						{
+							type: work
+							work: casting
+							amount: 3.000
+							amount_min: 45.000
+							amount_max: 1100.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 290.000
+							amount_min: 273.400
+							amount_max: 400.000
+							falloff: 0.423
+							group: 1
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: cooling
+							amount: 2.000
+							amount_min: 195.000
+							amount_max: 1100.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.900
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.rod
+							amount: 1.000
+							group: 0
+							ratio: 1.000
+							flags: primary, scale_to_mass, add_to_residues
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Chunks"
+					desc: "into bars."
+					
+					type: undefined
+					flags: none
+					
+					suffix: " chunks."
+					
+					requirements:
+					[
+						{
+							type: work
+							work: casting
+							amount: 3.000
+							amount_min: 45.000
+							amount_max: 1100.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 290.000
+							amount_min: 273.400
+							amount_max: 400.000
+							falloff: 0.423
+							group: 1
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: cooling
+							amount: 2.000
+							amount_min: 195.000
+							amount_max: 1100.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.900
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper
+							amount: 1.000
+							group: 0
+							ratio: 1.000
+							flags: primary, scale_to_mass, add_to_residues
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production
+	tags: simple, metallurgy, refining, heating, processing
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+		frame: [2, 2]
+	}
+	icon_offset: [-13.000, 4.000]
+	
+	icon_extra:
+	{
+		texture: resource.copper.gravel
+		size: [16, 16]
+		frame: [2, 2]
+	}
+	icon_extra_offset: [-6.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.copper.ingot
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	icon_c_offset: [-13.000, -15.000]
+	
+	color_frame: "0xffb45630"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	frame_size: [64.000, 16.000]
+	
+	min: 1
+	max: 1000
+	
+	version: 0
+}

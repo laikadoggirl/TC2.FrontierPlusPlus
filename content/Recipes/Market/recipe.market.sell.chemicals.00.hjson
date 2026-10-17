@@ -1,0 +1,441 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Sell Chemicals"
+	desc:
+		'''
+		Sell a varitery of chemical compounds with value to someone.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		money: product
+		phlogiston: ingredient
+		naphtha: ingredient
+		toluene: ingredient
+		hydrazine: ingredient
+		nitric_acid: ingredient
+		sulfuric_acid: ingredient
+		hydrochloric_acid: ingredient
+		hydrogen_peroxide: ingredient
+		turpentine: ingredient
+	}
+	
+	stages:
+	[
+		{
+			name: "Object"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Toluene"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: toluene
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 120.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 12.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Naphtha"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: naphtha
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 120.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 6.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Hydrazine"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: hydrazine
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 230.000
+							difficulty: 9
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 52.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Phlogiston"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: phlogiston
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 70.000
+							difficulty: 6
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 45.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Nitric acid"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitric_acid
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 100.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 20.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Sulfuric acid"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sulfuric_acid
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 110.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 9.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Hydrochloric acid"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: hydrochloric_acid
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 100.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 25.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "H.Peroxide"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: hydrogen_peroxide
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 150.000
+							difficulty: 6
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 46.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Turpentine"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: turpentine
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 80.000
+							difficulty: 6
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: money
+							amount: 6.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	type: buy
+	flags: blueprintable, item, production
+	tags: manual, crafting, simple, small, weapon, munitions, delicate, blending, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, chair, surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		size: [16, 16]
+	}
+	icon_offset: [0.000, -7.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+		frame: [5, 0]
+	}
+	icon_extra_offset: [0.000, -1.000]
+	
+	icon_c:
+	{
+		texture: resource.toluene
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-8.000, -9.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xfffff500"
+	button_name: "sell"
+	rank: 106.000
+	
+	min: 1
+	max: 500
+	step: 1
+	
+	version: 1
+}

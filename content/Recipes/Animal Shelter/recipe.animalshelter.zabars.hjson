@@ -1,0 +1,273 @@
+{
+	$version: "0.1.75.1"
+	name: "Cultivate Zabars"
+	desc:
+		'''
+		Let some Zabar eggs hatch, grow them into adults and keep them around your base.
+
+		Or kill them.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		money: product
+		arcanite: ingredient
+		arcanite.ingot: ingredient
+		arcanite.plate: ingredient
+		arcanite.rod: ingredient
+		arcanite.powder: ingredient
+	}
+	
+	stages:
+	[
+		{
+			name: "Egg Procuration"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Buying"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 265.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 80.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Putting in Eggs"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: eggs
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filtering
+							amount: 200.000
+							difficulty: 12
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Storing Feed"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Hornet Meat"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: insect
+							amount: 52.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 350.000
+							amount_min: 15.000
+							difficulty: 6
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+				{
+					name: "Scrub Chow Leftovers"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: chow
+							amount: 38.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 150.000
+							amount_min: 15.000
+							difficulty: 5
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Growth"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Waiting"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: drying
+							amount: 512.000
+							amount_min: 320.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.521
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+				{
+					name: "Forcefeed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: chow
+							amount: 90.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: torture
+							amount: 350.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: bredzabar
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: agriculture
+	hints: none
+	connotations: none
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: zabar.body.a
+		size: [16, 16]
+	}
+	icon_offset: [-9.000, -5.000]
+	
+	icon_extra:
+	{
+		texture: zabar.head
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-6.000, -16.000]
+	
+	icon_c:
+	{
+		texture: resource.eggs
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-3.000, -4.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	button_name: "select"
+	rank: 104.000
+	
+	min: 1
+	max: 3
+	step: 1
+	
+	version: 1
+}

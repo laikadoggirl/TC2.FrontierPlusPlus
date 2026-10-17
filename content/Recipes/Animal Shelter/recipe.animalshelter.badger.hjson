@@ -1,0 +1,318 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Badger Growth"
+	desc:
+		'''
+		One of the more dangerous animals in Smrtec can be bred for your pleasure!
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		money: product
+		arcanite: ingredient
+		arcanite.ingot: ingredient
+		arcanite.plate: ingredient
+		arcanite.rod: ingredient
+		arcanite.powder: ingredient
+	}
+	
+	stages:
+	[
+		{
+			name: "Badger Babies"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Buying"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 265.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 80.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Puttin' Together a Family"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: badger
+							amount: 2.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 500.000
+							difficulty: 12
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: prefab
+							prefab: badger
+							amount: 2.000
+							group: 0
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Storing Feed"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Cmajzl"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cmajzl
+							amount: 122.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 450.000
+							amount_min: 15.000
+							difficulty: 6
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+				{
+					name: "Chow Leftovers"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sauce
+							amount: 20.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: chow
+							amount: 55.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 550.000
+							amount_min: 15.000
+							difficulty: 5
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+				{
+					name: "Insects"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: insect
+							amount: 60.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 250.000
+							amount_min: 15.000
+							difficulty: 5
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Growth"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Waiting"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: drying
+							amount: 60.000
+							amount_min: 40.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.521
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+				{
+					name: "Forcefeed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: chow
+							amount: 90.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: torture
+							amount: 350.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: bredbadger
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: agriculture
+	hints: none
+	connotations: none
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: badger.body.a
+		size: [16, 15]
+	}
+	icon_offset: [-9.000, -5.000]
+	
+	icon_extra:
+	{
+		texture: badger.head
+		size: [16, 8]
+		frame: [8, 0]
+	}
+	icon_extra_offset: [-6.000, -24.000]
+	
+	icon_c:
+	{
+		texture: badger_den
+		size: [23, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-3.000, -3.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	button_name: "select"
+	rank: 104.000
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	h_sound_begin: badger_pissed
+	h_sound_complete: badger_growl_05
+	h_sound_finalize: badger_growl_01
+	
+	version: 1
+}

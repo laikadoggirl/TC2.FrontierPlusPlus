@@ -1,0 +1,284 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Cultivate Twuks"
+	desc:
+		'''
+		A beautiful songbird, the Twuk can be tamed into a harmless, flightless creature.
+
+		Its also pretty yummy.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		money: product
+		arcanite: ingredient
+		arcanite.ingot: ingredient
+		arcanite.plate: ingredient
+		arcanite.rod: ingredient
+		arcanite.powder: ingredient
+	}
+	
+	stages:
+	[
+		{
+			name: "Egg Procuration"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Buying"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 865.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trading
+							amount: 410.000
+							difficulty: 8
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Putting in Eggs"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: eggs
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 300.000
+							difficulty: 12
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Storing Feed"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Cmajzl"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cmajzl
+							amount: 652.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 550.000
+							amount_min: 15.000
+							difficulty: 6
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+				{
+					name: "Various Meat"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: meat
+							amount: 212.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: insect
+							amount: 430.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 550.000
+							amount_min: 15.000
+							difficulty: 5
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+				{
+					name: "Chow Leftovers"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: chow
+							amount: 320.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 250.000
+							amount_min: 15.000
+							difficulty: 5
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Growth"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Waiting"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: drying
+							amount: 50.000
+							amount_min: 30.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.521
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: bredtwuk
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: agriculture
+	hints: none
+	connotations: none
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: twuk.body
+		size: [21, 20]
+	}
+	icon_offset: [-19.000, -5.000]
+	
+	icon_extra:
+	{
+		texture: twuk.head.male
+		size: [17, 17]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-32.000, -19.000]
+	
+	icon_c:
+	{
+		texture: twuk.nest.00
+		size: [33, 24]
+	}
+	icon_c_offset: [-5.000, -4.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	button_name: "select"
+	rank: 104.000
+	
+	min: 1
+	max: 3
+	step: 1
+	
+	h_sound_begin: dodo.squawk.00
+	h_sound_complete: dodo.pain.00
+	h_sound_finalize: dodo.squawk.03
+	
+	version: 1
+}
