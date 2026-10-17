@@ -1,0 +1,216 @@
+$name: "Squaddrop Container"
+$desc:
+	'''
+	Large shipping container, filled with a squadron of soldiers ready to die for the cause.
+	'''
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.150
+	
+	@shape.box:
+	{
+		size: [4.000, 2.500]
+		offset: [0.000, 0.000]
+		mass: 500.000
+		friction: 0.750
+		elasticity: 0.400
+		material: metal_sheet
+		layer: entity, solid, crate
+		mask: world
+	}
+}
+
+health:
+{
+	max: 35000.000
+}
+
+holdable:
+{
+	radius: 0.000
+	stress_multiplier: 0.500
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+attachment:
+{
+	force_multiplier: 2.000
+	torque_multiplier: 2.000
+	offset: [0.000, 1.250]
+	flags: disable_parent_facing
+	tags: huge, fixed
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "container.personnel.padded.00"
+		mask: "container.personnel.mask"
+	}
+	z: -100.000
+}
+
+faction.colorable:
+{
+	intensity_a: 0.600
+	intensity_b: 0.500
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: none
+	window_size: [544, 432]
+	window_size_misc: [192, 0]
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
+spawn:
+{
+	spawn_offset: [-1.125, -0.250]
+	flags: faction
+}
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+
+	flags: faction, spawner
+}
+
+dormitory:
+{
+	species: human
+	flags: no_hiring, no_reject, no_kit_selection, no_kit_requirements, region_only
+	kit_default: human.faction.paradrop
+	characters_capacity: 8
+	characters_initial_count: 8
+	characters_reserved_count: 8
+	repopulate_interval: 100000.000
+	repopulate_interval_extra: 300.000
+	repopulate_num: 1
+	repopulate_num_extra: 2
+	repopulate_max: 8
+	asset_flags: recycle
+	character_flags_filter:
+	{
+		require: none
+		include: military, armed, soldier, outdoor, lower_middle_class, middle_class
+		exclude: none
+		weight: 5.000
+	}
+}
+
+armory:
+{
+	@inventory4:
+	{
+		type: ammo
+		flags: no_auto_pickup, faction, vertical
+		stack_size_multiplier: 20.000
+		
+		filter:
+		{
+			require: ammo
+			include: ammo
+			exclude: gas
+		}
+	}
+}
+
+shipment:
+{
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction
+	type: armory
+	layout: large
+}
+
+storage:
+{
+	@inventory8:
+	{
+		type: storage
+		flags: standalone, ignore_mass, faction
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			require: none
+			include: soft, hard, granular, large, small, bottled
+			exclude: gas
+		}
+		
+		offset: [0.500, 0.750]
+	}
+}
+
+squad:
+{
+	max_size: 8
+	flags: no_unit_remove
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, form_groups, assist_work
+}
+
++slot.balloon|instance:
+{
+	$tags: []
+	
+	joint.base:
+	{
+		offset_a: [0.000, -1.375]
+		offset_b: [0.000, 4.250]
+		max_force: 300000.000
+		max_torque: 20000.000
+		material_type: fabric
+		flags: no_stress
+	}
+	
+	joint.dualrope:
+	{
+		error_bias: 0.010
+		max_bias: 1.000
+		distance_min: 0.000
+		distance_max: 4.000
+		gap_a: 3.625
+		gap_b: 1.500
+	}
+	
+	// joint.gear:
+	// {
+	// 	error_bias: 0.050
+	// }
+	
+	ropetest:
+	{
+		texture: "rope"
+		thickness: 0.175
+		scale: 6.000
+	}
+		
+	+balloon|child:
+	{
+		$prefab: "balloon.envelope.00"
+	}
+}

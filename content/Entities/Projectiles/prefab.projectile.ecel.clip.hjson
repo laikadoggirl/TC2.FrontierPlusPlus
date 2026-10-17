@@ -1,0 +1,86 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 250.000
+	damage_bonus: 510.000
+	damage_type: bullet_mg
+	flags: no_miss
+	hit_exclude: tree
+
+	lifetime: 20.000
+	ignore_time: 0.000
+	size: 0.350
+	ricochet_count: 0
+	damp: 0.992
+	mass: 4.000
+
+	tracer_length: 1.700
+
+	@sound.emitter:
+	{
+		file: "essence.collapse.electricity.00"
+		volume: 0.400
+		pitch: 2.000
+		size_max_modifier: 2.500
+		spread: 120.000
+		doppler: 0.300
+		size: 0.500
+	}
+
+	@light:
+	{
+		color: [0.000, 0.800, 1.000, 3.000]
+		offset: [-1.000, 0.000]
+		scale: [24.000, 2.000]
+		intensity: 2.000
+		texture: "light.circle.04"
+	}
+}
+
+projectile.renderer:
+{
+	color_a: "0xff00ffc4"
+
+	intensity: 1.500
+	thickness_a: 0.120
+	thickness_b: 0.080
+}
+
+transform:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: atlas.sprite.zapper
+		size: [128, 14]
+		frame: [0, 0]
+	}
+	scale: [1.500, 0.500]
+	z: -40.000
+}
+
+transform:
+{
+
+}
+
+rocket:
+{
+	mass: 0.250
+	force: 300.000
+	fuel_time: 10.000
+	smoke_amount: 0.000
+}
+
+essence.container:
+{
+	h_essence: electricity
+	available: 7.000
+	stability: 0.000
+	health_threshold: 0.000
+}
