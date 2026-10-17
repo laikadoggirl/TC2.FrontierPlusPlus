@@ -1,0 +1,68 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Trading"
+	name_short: "Trading"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [27, 0]
+	}
+	
+	flags: wip
+	tags: skilled, social, politics, bureaucracy
+	
+	amount_base: 0.000
+	cooldown: 3.000
+	multiplier: 1.000
+	
+	amount_jitter: 0.703
+	cooldown_jitter: 0.490
+	color: "0xff882ec2"
+	
+	tools_required: none
+	tools_optional: pencil, paper, towel
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	character_traits:
+	{
+		include: educated, military, nobility, law, social, rich, entertainer, artist, evil, politician, fanatic
+		exclude: slave, insane, pet, feral
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		intellect: 0.400
+		law: 0.350
+		charisma: 0.900
+		leadership: 0.750
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: ["vo_bandit","npc_talk_00","npc_talk_01","npc_talk_02","vo_attack","vo_bad","vo_builder","vo_ladder","vo_yes","vo_no","vo_idiot","vo_hi","vo_why","vo_what","vo_chicken","vo_huh","vo_strong","vo_water","vo_uhh","vo_die","vo_look","vo_destroy","vo_neutral","vo_need","vo_kill","vo_okay","vo_hello","vo_rip","vo_haha","vo_help","vo_join","vo_gun","vo_give","vo_build","vo_jerk","vo_please","vo_run","vo_lalala","vo_fire","vo_grrr","vo_lag"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

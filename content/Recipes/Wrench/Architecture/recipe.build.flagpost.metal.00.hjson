@@ -1,0 +1,116 @@
+﻿{
+	$version: "0.1.70.1"
+	name: "Flagpole (Metal)"
+	desc:
+		'''
+		Expands faction-claimed area, albeit with low influence.
+		'''
+	tips:
+	[
+		"Very durable"
+		"Cannot be placed outside faction-owned territory"
+	]
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.rod
+			amount: 25.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 10.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: brick.concrete
+			amount: 20.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: cloth
+			amount: 35.000
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: flagpost.metal.00
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: architecture
+	flags: no_amount_multiplier, blueprintable
+	tags: simple, large, metalworking, metallurgy, construction
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.800
+	
+	icon:
+	{
+		texture: flagpost.metal.00
+		size: [16, 80]
+	}
+	
+	color_frame: "0xffc54e5e"
+	color_button: "0xff9dd80f"
+	rank: 100.000
+	
+	placement:
+	{
+		type: simple
+		flags: require_claimed, require_terrain, terrain_is_support, no_solid_support
+		
+		size: [0.500, 10.000]
+		offset: [0.000, -4.625]
+		
+		rect_foundation: [-0.750, 0.125, 0.750, 0.750]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-0.250, -9.375, 0.250, 0.125]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.800
+		min_clearance: 0.900
+		min_claim: 1.000
+		
+		rotation_max: 0.350
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		snapping_depth: 0.125
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 1
+}

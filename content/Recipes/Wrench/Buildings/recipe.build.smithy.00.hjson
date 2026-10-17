@@ -1,0 +1,226 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Smithy"
+	tips:
+	[
+		"Forge uses arcanite pellets as a heat source"
+	]
+	
+	stages:
+	[
+		{
+			name: "Foundation"
+			
+			type: foundation
+			flags: wip
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: shovel
+			
+			options:
+			[
+				{
+					name: "Soil Foundation"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: soil
+							amount: 120.000
+							loss: 0.039
+							group: 0
+							flags: compact, primary
+						}
+						{
+							type: work
+							work: filling.gravel
+							amount: 425.000
+							amount_min: 20.000
+							difficulty: 6
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Forge"
+			
+			type: infrastructure
+			flags: wip
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: handsaw
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 8.77809
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+							flags: compact
+						}
+						{
+							type: work
+							work: masonry
+							amount: 400.000
+							difficulty: 6
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: gravel
+							amount: 12.53262
+							snapping: 0.200
+							loss: 0.075
+							group: 1
+							flags: compact
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 9.000
+							snapping: 1.000
+							loss: 0.106
+							group: 1
+							flags: compact
+						}
+						{
+							type: work
+							work: assembling
+							amount: 150.000
+							difficulty: 9
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					complete_delay: 1.000
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: smithy.00
+			amount: 1.000
+			group: 0
+			flags: primary, hidden
+		}
+	]
+	
+	type: buildings
+	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, no_cancel, auto_complete
+	tags: simple, large, woodworking, metalworking, architecture, construction
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	dismantle_work: 25.000
+	dismantle_yield: 0.800
+	
+	icon:
+	{
+		texture: smithy.00
+		size: [40, 40]
+	}
+	
+	color_frame: "0xffe7cacf"
+	color_button: "0xff9dd80f"
+	button_name: "Build"
+	rank: -1399.000
+	frame_size: [192.000, 80.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x
+		
+		size: [5.000, 5.000]
+		offset: [0.000, -1.500]
+		
+		rect_foundation: [-2.500, 0.000, 2.500, 1.000]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-2.125, -3.500, 2.125, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.750
+		min_clearance: 0.950
+		min_claim: 1.000
+		
+		rotation_max: 0.200
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	construction:
+	{
+		prefab: construction.5x5
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: wood
+				amount: 16.000
+				loss: 0.110
+				group: 0
+				flags: compact, no_scaling, prerequisite
+			}
+			{
+				type: resource
+				material: brick.concrete
+				amount: 50.000
+				loss: 0.031
+				group: 0
+				flags: compact, no_scaling, prerequisite
+			}
+		]
+	}
+	
+	h_sound_finalize: building_construct
+	
+	version: 1
+}
