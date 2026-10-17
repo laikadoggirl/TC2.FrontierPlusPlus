@@ -1,0 +1,195 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.74.0"
+	name: "Satchel"
+	desc:
+		'''
+		A crude and cheap mining and breaching explosive consisting of a handfull of powder bound in leather with a simple fuse for lightweight carry.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		nitroglycerine: ingredient, liquid, input, auto_generated
+		sawdust: powdered, ingredient, input, auto_generated
+		saltpeter: raw, powdered, ingredient, input, auto_generated
+		mush: residue, scrap, output, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		tnt: ingredient, input, auto_generated
+		nitrocellulose: powdered, ingredient, input, auto_generated
+		porridge: ingredient, input, auto_generated
+		paper: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Assembly"
+			
+			type: construction
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.300
+			
+			options:
+			[
+				{
+					name: "Leather"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: leather
+							amount: 3.78125
+							loss: 0.067
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: cloth
+							amount: 0.527778
+							snapping: 0.100
+							loss: 0.110
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 80.000
+							amount_min: 60.000
+							difficulty: 7
+							snapping: 0.500
+							ratio: 0.145
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paper, ruler, cutters, tweezers, magnifying_glass, paintbrush, stapler, file, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, structure
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, cozy, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+		{
+			name: "Formula"
+			
+			type: formula
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.500
+			
+			options:
+			[
+				{
+					name: "Gunpowder"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 7.246377
+							snapping: 0.100
+							falloff: 0.950
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 40.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.960
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: shovel, towel
+					}
+					filter_infrastructure:
+					{
+						include: dishes, compactor, blender, press, form
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: satchel_charge
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, production
+	tags: manual, crafting, simple, small, weapon, munitions, delicate, blending, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: satchel_charge
+	}
+	icon_offset: [-1.000, 1.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [8, 8]
+		frame: [3, 2]
+	}
+	icon_extra_offset: [-5.000, -6.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -1.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}

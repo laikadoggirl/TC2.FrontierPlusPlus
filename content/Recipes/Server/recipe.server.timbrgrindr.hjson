@@ -1,0 +1,339 @@
+﻿{
+	$version: "0.1.75.1"
+	name: "Timbr Grindr"
+	desc:
+		'''
+		Using ancient recipes from murderhobos of long ago, create a fearsome shotgun-scrap weapon resurrected through dark Koboldry.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Wooden Base"
+			
+			type: part
+			flags: replaceable, part, important, wip, auto_generated
+			tags: barrel, chassis, rod, metal, structural, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.430
+			mass_base: 5.160
+			
+			options:
+			[
+				{
+					name: "Reshaped"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 1.400
+							snapping: 1.000
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: wood
+							amount: 5.000
+							snapping: 1.000
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 150.000
+							amount_min: 40.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.950
+							ratio: 0.878
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: hammering
+							amount: 60.000
+							amount_min: 12.000
+							difficulty: 0
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, pliers, chisel, towel, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, hard_surface, workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Gunpowder"
+			
+			type: part
+			flags: part, important, wip, auto_generated
+			tags: frame, chassis, mechanism, metal, structural, functional
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.380
+			mass_base: 4.560
+			
+			options:
+			[
+				{
+					name: "Stuffing"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 5.000
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.300
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: cloth
+							amount: 4.000
+							snapping: 0.100
+							loss: 0.078
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 214.4108
+							amount_min: 87.500
+							difficulty: 11
+							snapping: 5.000
+							falloff: 0.880
+							ratio: 0.878
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 210.000
+							amount_min: 170.000
+							difficulty: 16
+							snapping: 5.000
+							falloff: 0.880
+							ratio: 0.878
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench, file
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, chisel, towel, tongs, pick, crowbar, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
+				}
+			]
+		}
+		{
+			name: "Adhesive"
+			
+			type: part
+			flags: replaceable, part, wip, auto_generated
+			tags: grip, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.060
+			mass_base: 0.720
+			
+			options:
+			[
+				{
+					name: "Glue"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 8.000
+							snapping: 0.500
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 90.000
+							amount_min: 80.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.910
+							ratio: 0.878
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 90.000
+							amount_min: 80.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.910
+							ratio: 0.878
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
+					}
+				}
+				{
+					name: "Porridge Mortar"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: porridge
+							amount: 12.000
+							snapping: 0.500
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: water
+							amount: 25.000
+							snapping: 0.500
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 120.000
+							amount_min: 160.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.910
+							ratio: 0.878
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 90.000
+							amount_min: 80.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.910
+							ratio: 0.878
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: timbrgrindr
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item
+	tags: manual, crafting, complex, small, weapon, gun, assembling, metalworking, engineering, military
+	hints: none
+	connotations: none
+	infrastructure: table, surface
+	infrastructure_exclude: giant
+	
+	h_company: common.kobold
+	
+	icon:
+	{
+		texture: timbrgrindr
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 8.000
+	frame_size: [64.000, 48.000]
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 1
+}

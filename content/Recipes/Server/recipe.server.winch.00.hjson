@@ -1,0 +1,213 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "Winch"
+	desc:
+		'''
+		Mountable reel with a rope and a hook.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Body"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 3.000
+							loss: 0.212
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 6.000
+							loss: 0.204
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 240.000
+							difficulty: 6
+							ratio: 0.137
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 160.000
+							difficulty: 8
+							ratio: 0.153
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 4.000
+							loss: 0.204
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 80.000
+							difficulty: 7
+							ratio: 0.231
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Rope"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Cloth"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 12.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 120.000
+							difficulty: 0
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Hook"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Filed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.500
+							loss: 0.129
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 600.000
+							difficulty: 10
+							ratio: 0.533
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: winch
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, wip
+	tags: manual, crafting, complex, large, tool, machinery, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: winch
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 2000.000
+	frame_size: [80.000, 64.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
+}

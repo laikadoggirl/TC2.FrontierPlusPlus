@@ -1,0 +1,391 @@
+﻿{
+	$version: "0.1.75.0"
+	name: "Repair Weapon (VERY WIP)"
+	desc:
+		'''
+		Using some spare parts or some special putty you can repair anything and everything.
+
+		!!! REMOVES AUGMENTS !!!
+		'''
+	tips: []
+	
+	related_materials:
+	{
+	
+	}
+	
+	stages:
+	[
+		{
+			name: "Target"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "HMG"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: machine_gun
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: prefab
+							prefab: machine_gun
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, spanner
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+				{
+					name: "Autocannon"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: autocannon
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: prefab
+							prefab: autocannon
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, spanner
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+				{
+					name: "MRL"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: mrl
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: prefab
+							prefab: mrl
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, spanner
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+				{
+					name: "Revolver cannon"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: tank_gun.00
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: prefab
+							prefab: tank_gun.00
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, spanner
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+				{
+					name: "Short howitzer  "
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: cannon.short
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: prefab
+							prefab: cannon.short
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, spanner
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+				{
+					name: "Howitzer"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: cannon
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: prefab
+							prefab: cannon
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, spanner
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Material"
+			
+			type: part
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Putty"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: putty
+							amount: 2.609263
+							loss: 0.157
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: cpt.integration
+							amount: 40.000
+							difficulty: 5
+							loss: 0.157
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, saw
+						include: pencil, ruler, cutters, hand_drill, screwdriver, spanner, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+				{
+					name: "Mixed scrap"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 14.49275
+							snapping: 0.100
+							loss: 0.157
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 600.000
+							difficulty: 8
+							loss: 0.157
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, saw
+						include: pencil, ruler, cutters, hand_drill, screwdriver, spanner, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, wip
+	tags: manual, crafting, advanced, large, weapon, gun, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: hammer
+	}
+	icon_offset: [-18.000, -12.000]
+	icon_scale: 1.200
+	
+	icon_extra:
+	{
+		texture: machine_gun
+	}
+	icon_extra_offset: [-5.000, -12.000]
+	icon_extra_scale: 0.900
+	
+	icon_c:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [5, 1]
+	}
+	icon_c_offset: [-18.000, -25.000]
+	icon_c_scale: 1.200
+	
+	color_frame: "0xff46d908"
+	color_button: "0xff9dd80f"
+	rank: 3000.000
+	frame_size: [64.000, 64.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
+}

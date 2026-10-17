@@ -1,0 +1,435 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "Tank"
+	desc:
+		'''
+		Very armored and heavy the powerhouse of any self respecting military, the tank can take an extreme beating before being put out of commission and when that hapopens you can hear the tears of every tank man out there.
+		'''
+	
+	stages:
+	[
+		{
+			name: "Chassis"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 92.000
+							loss: 0.533
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 58.18847
+							loss: 0.235
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 2200.000
+							difficulty: 10
+							ratio: 0.165
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 1900.000
+							difficulty: 9
+							ratio: 0.569
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 1400.000
+							difficulty: 8
+							ratio: 0.337
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 155.3398
+							loss: 0.271
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 900.000
+							difficulty: 8
+							ratio: 0.086
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Connectors"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Mechanical"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 233.0097
+							loss: 0.220
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 1200.000
+							difficulty: 7
+							ratio: 0.102
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Body"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Plate"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 25.60164
+							snapping: 1.000
+							loss: 0.184
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 85.4369
+							loss: 0.529
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 600.000
+							difficulty: 6
+							ratio: 0.118
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 1100.000
+							difficulty: 9
+							ratio: 0.173
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 450.000
+							difficulty: 8
+							ratio: 0.173
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Armor"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Steel"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 60.000
+							snapping: 1.000
+							loss: 0.184
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 4200.000
+							difficulty: 10
+							ratio: 0.118
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 2300.000
+							difficulty: 9
+							ratio: 0.173
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 1900.000
+							difficulty: 8
+							ratio: 0.173
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: phlogiston
+							amount: 52.44755
+							ratio: 0.173
+							group: 1
+							flags: conditional, prerequisite
+						}
+						{
+							type: work
+							work: welding.phlogiston
+							amount: 3400.000
+							difficulty: 8
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+				}
+				{
+					name: "Smirglum"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirglum.plate
+							amount: 44.5615
+							snapping: 1.000
+							loss: 0.216
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 2800.000
+							difficulty: 14
+							ratio: 0.118
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 1900.000
+							difficulty: 12
+							ratio: 0.173
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 750.000
+							difficulty: 9
+							ratio: 0.173
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: putty
+							amount: 52.18526
+							ratio: 0.173
+							group: 1
+							flags: conditional, prerequisite
+						}
+						{
+							type: work
+							work: cpt.integration
+							amount: 200.000
+							difficulty: 8
+							ratio: 0.173
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: tank.00
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: machinery
+	flags: no_amount_multiplier, blueprintable, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
+	tags: advanced, large, vehicle, machinery, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: tank.00.bg
+		size: [80, 40]
+	}
+	icon_offset: [7.000, -10.000]
+	
+	icon_extra:
+	{
+		texture: tank.00.fg
+		size: [80, 40]
+	}
+	icon_extra_offset: [-11.000, -18.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 2499.000
+	frame_size: [160.000, 80.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	placement:
+	{
+		type: rectangle
+		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support
+		
+		size: [8.000, 5.000]
+		offset: [0.000, -2.000]
+		
+		rect_foundation: [-4.000, 0.000, 4.000, 0.400]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-4.000, -4.000, 4.000, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.200
+		min_clearance: 0.950
+		min_claim: 1.000
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	construction:
+	{
+		prefab: construction.8x5
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: wood
+				amount: 40.000
+				group: 0
+				flags: prerequisite
+			}
+		]
+	}
+	
+	version: 0
+}

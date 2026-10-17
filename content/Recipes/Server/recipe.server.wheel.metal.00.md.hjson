@@ -1,0 +1,314 @@
+﻿{
+	$version: "0.1.74.0"
+	$author: "KoreZack"
+	name: "Wheel (Metal, Medium)"
+	desc:
+		'''
+		Medium heavy metal wheel that can take a beating and be attached to vehicles.
+
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		machine_parts: input, auto_generated
+		steel.frames: input, auto_generated
+		oil: liquid, input, auto_generated
+		steel.plate: input, auto_generated
+		rubber: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Bearing"
+			
+			type: part
+			flags: part
+			tags: mechanism, metal, assembly, functional, small
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Ball bearing"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 11.65049
+							snapping: 0.250
+							falloff: 0.950
+							loss: 0.235
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 8.000
+							snapping: 1.000
+							loss: 0.129
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 160.000
+							amount_min: 230.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.950
+							ratio: 0.902
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: oil
+							amount: 1.338688
+							snapping: 0.100
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: polishing.oil
+							amount: 60.000
+							amount_min: 80.000
+							difficulty: 4
+							snapping: 25.000
+							falloff: 0.933
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench, towel
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, paintbrush, stapler, towel, tongs, pick, crowbar, knife
+					}
+				}
+			]
+		}
+		{
+			name: "Spokes"
+			
+			type: assembly
+			flags: part
+			tags: frame, shell, thin, metal, assembly, structural, small, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Solid"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 12.000
+							snapping: 0.500
+							loss: 0.149
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 10.000
+							snapping: 0.100
+							loss: 0.200
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 160.000
+							amount_min: 250.000
+							difficulty: 8
+							snapping: 25.000
+							ratio: 0.251
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 120.000
+							amount_min: 190.000
+							difficulty: 8
+							snapping: 25.000
+							ratio: 0.251
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 160.000
+							amount_min: 240.000
+							difficulty: 6
+							snapping: 25.000
+							ratio: 0.149
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, cutters, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, chisel, towel, tongs, pick, crowbar, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: anvil, table, vise, surface, hard_surface, workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Rim"
+			
+			type: undefined
+			flags: part
+			tags: grip, shell, small, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Bent"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 32.000
+							snapping: 0.500
+							falloff: 0.990
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 38.83495
+							snapping: 0.500
+							loss: 0.149
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 220.000
+							amount_min: 280.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.990
+							loss: 0.149
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 160.000
+							amount_min: 260.000
+							difficulty: 9
+							snapping: 10.000
+							falloff: 0.990
+							loss: 0.149
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: bolting
+							amount: 120.000
+							amount_min: 400.000
+							difficulty: 5
+							snapping: 10.000
+							falloff: 0.990
+							loss: 0.149
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: cutters, pliers, tweezers, paintbrush, file, knife, needle, pins, scissors, utensils
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: wheel.metal.00.md
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, manufacturing, wip, needs_review
+	tags: manual, crafting, complex, small, vehicle, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: wheel.metal.00.md
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 2602.000
+	frame_size: [48.000, 48.000]
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

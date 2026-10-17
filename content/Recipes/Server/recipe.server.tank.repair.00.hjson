@@ -1,0 +1,206 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.74.0"
+	name: "Tank Repair"
+	desc:
+		'''
+		Repair a heavy tank chassis.
+		'''
+	
+	stages:
+	[
+		{
+			name: "Tank"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Tank"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: tank.00
+							amount: 1.000
+							group: 0
+							flags: stepped, prerequisite
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Material"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Mixed scrap"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 36.23188
+							group: 0
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 2000.000
+							difficulty: 7
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+				{
+					name: "C-Putty"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: putty
+							amount: 30.000
+							group: 0
+						}
+						{
+							type: work
+							work: cpt.integration
+							amount: 100.000
+							difficulty: 7
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: tank.00
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: machinery
+	flags: no_amount_multiplier, blueprintable, disabled, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
+	tags: advanced, large, vehicle, machinery, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: tank.00.bg
+		size: [80, 40]
+	}
+	icon_offset: [7.000, -10.000]
+	
+	icon_extra:
+	{
+		texture: tank.00.fg
+		size: [80, 40]
+	}
+	icon_extra_offset: [-11.000, -18.000]
+	
+	icon_c:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [5, 1]
+	}
+	
+	color_frame: "0xff46d908"
+	color_button: "0xff9dd80f"
+	rank: 2499.000
+	frame_size: [160.000, 80.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	placement:
+	{
+		type: rectangle
+		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support
+		
+		size: [8.000, 5.000]
+		offset: [0.000, -2.000]
+		
+		rect_foundation: [-4.000, 0.000, 4.000, 0.400]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-4.000, -4.000, 4.000, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.200
+		min_clearance: 0.950
+		min_claim: 1.000
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	construction:
+	{
+		prefab: construction.8x5
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: wood
+				amount: 40.000
+				group: 0
+				flags: prerequisite
+			}
+		]
+	}
+	
+	version: 0
+}
