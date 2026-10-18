@@ -53,7 +53,7 @@ gun:
 	stability: 1400.000
 	failure_rate: 0.001
 	
-	ammo_filter: ammo_hc
+	ammo_filter: ammo_harpoon
 	max_ammo: 3.000
 	
 	action: bolt
