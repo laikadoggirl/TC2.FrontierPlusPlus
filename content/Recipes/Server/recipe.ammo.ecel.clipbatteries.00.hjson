@@ -1,0 +1,434 @@
+﻿{
+	$version: "0.1.75.3"
+	name: "EC-EL Clipbatteries"
+	desc:
+		'''
+		Experimental electrically-charged ammunition that fires high-powered pellets.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		copper.plate: input, auto_generated
+		tallow: raw, input, auto_generated
+		oil: residue, byproduct, liquid, input, output, auto_generated
+		lubricant: liquid, input, auto_generated
+		water.toxic: raw, waste, liquid, output, auto_generated
+		nitrosugar: input, auto_generated
+		alcohol: liquid, input, auto_generated
+		nitroglycerine: liquid, input, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		scrap.niklajzner: ingredient, scrap, input, auto_generated
+		ammo.mg.lv: product, result, output, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Casing"
+			
+			type: container
+			flags: part
+			tags: chassis, shell, metal, container, structural, rounded, material
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: crush
+			
+			options:
+			[
+				{
+					name: "Conductive"
+					
+					type: undefined
+					flags: wip
+					
+					prefix: "High-Powered "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.100
+							snapping: 1.000
+							loss: 0.380
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.1258
+							snapping: 0.100
+							falloff: 0.942
+							loss: 0.243
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 15.000
+							difficulty: 9
+							snapping: 5.000
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: cramming.solid
+							amount: 38.000
+							amount_min: 180.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.741
+							ratio: 0.816
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 58.000
+							difficulty: 11
+							snapping: 10.000
+							falloff: 0.882
+							ratio: 1.000
+							group: 1
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 30.000
+							difficulty: 9
+							snapping: 10.000
+							falloff: 0.998
+							ratio: 1.000
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.04536
+							amount_extra: 0.06495
+							group: 0
+							flags: byproduct
+						}
+					]
+					
+					advance_delay: 2.000
+					
+					quality_modifier: 0.400
+					yield_modifier: 0.400
+					
+					filter_tools:
+					{
+						include: paintbrush, spatula
+					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press, dies
+					}
+				}
+				{
+					name: "Hardshell"
+					
+					type: undefined
+					flags: wip
+					
+					prefix: "Toughened "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.1106
+							snapping: 0.500
+							loss: 0.392
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.060366
+							snapping: 0.100
+							falloff: 0.414
+							loss: 0.090
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 28.000
+							difficulty: 7
+							snapping: 10.000
+							falloff: 0.952
+							ratio: 0.455
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 28.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.935
+							ratio: 0.471
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 10.000
+							difficulty: 9
+							snapping: 5.000
+							ratio: 0.710
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 0.01226
+							amount_extra: 0.01188
+							group: 0
+							flags: pollutant, waste
+						}
+					]
+					
+					advance_delay: 2.000
+					
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press, dies
+					}
+				}
+			]
+		}
+		{
+			name: "Primer"
+			
+			type: component
+			flags: part
+			tags: functional, small, flat, rounded, material, dangerous
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Electric Pellet"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: punch
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: pellet.electricity
+							amount: 0.182145
+							snapping: 0.100
+							loss: 0.067
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.1048
+							snapping: 0.100
+							falloff: 0.982
+							loss: 0.141
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: machining
+							amount: 42.000
+							amount_min: 58.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.824
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+				}
+			]
+		}
+		{
+			name: "Formula"
+			
+			type: formula
+			flags: important
+			tags: container, assembly, functional, material, dangerous, formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Unstable EC-EL"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+					
+					suffix: "/ARC"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: pellet.electricity
+							amount: 0.012937
+							snapping: 0.100
+							loss: 0.078
+							ratio: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 0.293576
+							snapping: 0.100
+							loss: 0.580
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: machining
+							amount: 12.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 10.000
+							falloff: 0.961
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: sharpening.metal
+							amount: 18.000
+							amount_min: 120.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.841
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 16.000
+							amount_min: 65.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.906
+							ratio: 1.000
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.ecel.clipbatteries
+							amount: 1.000
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, pliers
+						include: wrench, pliers, tweezers, bucket, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, vise
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, manufacturing, wip
+	tags: crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, engineering, military, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, chair, surface, stamping_press, workbench
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.ecel.clipbatteries
+		count: 4
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-1.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_gunsmith.mini
+		size: [16, 16]
+		frame: [11, 0]
+	}
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -55.60001
+	
+	min: 5
+	max: 100
+	step: 5
+	
+	version: 1
+}
