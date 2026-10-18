@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.1"
+	$version: "0.1.75.3"
 	color: "0xffffdaa8"
 	
 	sounds_looped:
@@ -31,7 +31,7 @@
 			}
 		}
 		{
-			sound: music.day.02.long
+			sound: music.industry.01.long
 			volume: 0.500
 			pitch: 1.000
 			
